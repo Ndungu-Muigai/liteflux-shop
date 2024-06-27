@@ -12,7 +12,7 @@ const Navbar = () => {
     const closeDropdown = () => setIsDropdownOpen(false)
 
     return (
-        <div className="navbar fixed top-0 left-0 right-0 bg-background text-white">
+        <div className="navbar fixed top-0 left-0 right-0 w-full bg-background text-white">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost md:hidden">
@@ -48,7 +48,7 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end flex">
-                <ul className='menu menu-horizontal px-4 text-2xl'>
+                <ul className='menu menu-horizontal px-2 text-2xl'>
                   <li>
                       <Link to="/saved" className='flex items-center'>
                         <div tabIndex={0} role='button' className="flex items-center">
@@ -68,10 +68,21 @@ const Navbar = () => {
                                     <span className="badge badge-sm indicator-item text-inherit bg-transparent border-none">0</span>
                                 </div>
                             </div>
-                            <div className={`card card-compact dropdown-content bg-base-100 z-[1] mt-6 w-52 shadow-lg ${isDropdownOpen ? 'block' : 'hidden'}`} onClick={closeDropdown}>
-                                <div className="card-body">
-                                  <span className="text-lg font-bold">0 Items</span>
-                                  <span className="text-info">Subtotal: Kshs. 0.00</span>
+                            <div className={`card card-compact dropdown-content bg-background z-[1] mt-9 w-64 shadow-lg ${isDropdownOpen ? 'block' : 'hidden'}`} onClick={closeDropdown}>
+                                <div className="card-body max-h-72 overflow-y-auto">
+                                  {/* <span className="text-lg font-bold">0 Items</span> */}
+                                  <div className='flex justify-between'>
+                                    <img src={Logo} alt='Product' className='w-20'/>
+                                    <div>
+                                        <p className='pt-1'>Product description</p>
+                                        <p className='pt-1'>Qty: 1</p>
+                                        <p className='pt-1'>Price: Kshs 1,500</p>
+                                    </div>
+                                  </div>
+                                  <div className="flex justify-between text-lg mt-2">
+                                    <p className='text-white'>Total</p>
+                                    <span className="text-white">Kshs. 0.00</span>
+                                  </div>
                                   <div className="card-actions mt-2">
                                     <Link to="/cart" className="btn btn-primary btn-block">View Cart</Link>
                                     <Link to="/checkout" className="btn btn-primary btn-block">Checkout</Link>
