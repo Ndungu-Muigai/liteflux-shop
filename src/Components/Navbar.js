@@ -12,7 +12,7 @@ const Navbar = () => {
     const closeDropdown = () => setIsDropdownOpen(false)
 
     return (
-        <div className="navbar bg-base-100 text-white">
+        <div className="navbar bg-background text-white">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost md:hidden">
@@ -54,7 +54,7 @@ const Navbar = () => {
                         <div tabIndex={0} role='button' className="flex items-center">
                             <div className="indicator">
                                 <CiHeart className="text-2xl"/>
-                                <span className="badge badge-sm indicator-item">0</span>
+                                <span className="badge badge-sm indicator-item text-inherit bg-transparent border-none">0</span>
                             </div>
                         </div>
                       </Link>
@@ -65,7 +65,7 @@ const Navbar = () => {
                             <div tabIndex={0} role='button' className="flex items-center" onClick={toggleDropdown}>
                                 <div className="indicator">
                                     <MdOutlineShoppingBag className="text-2xl"/>
-                                    <span className="badge badge-sm indicator-item">0</span>
+                                    <span className="badge badge-sm indicator-item text-inherit bg-transparent border-none">0</span>
                                 </div>
                             </div>
                             <div className={`card card-compact dropdown-content bg-base-100 z-[1] mt-6 w-52 shadow-lg ${isDropdownOpen ? 'block' : 'hidden'}`} onClick={closeDropdown}>
