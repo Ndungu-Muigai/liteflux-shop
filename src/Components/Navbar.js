@@ -70,8 +70,8 @@ const Navbar = () => {
                             </div>
                             <div className={`card card-compact dropdown-content bg-base-100 z-[1] mt-6 w-52 shadow-lg ${isDropdownOpen ? 'block' : 'hidden'}`} onClick={closeDropdown}>
                                 <div className="card-body">
-                                  <span className="text-lg font-bold">8 Items</span>
-                                  <span className="text-info">Subtotal: $999</span>
+                                  <span className="text-lg font-bold">0 Items</span>
+                                  <span className="text-info">Subtotal: Kshs. 0.00</span>
                                   <div className="card-actions mt-2">
                                     <Link to="/cart" className="btn btn-primary btn-block">View Cart</Link>
                                     <Link to="/checkout" className="btn btn-primary btn-block">Checkout</Link>
