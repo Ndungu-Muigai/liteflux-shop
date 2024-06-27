@@ -3,7 +3,7 @@ import { ReactTyped } from "react-typed";
 
 const Intro = () => {
     return (
-        <div className="home h-4/6 flex justify-end items-center bg-cover bg-center">
+        <div className="home mt-24 h-4/6 flex justify-end items-center bg-cover bg-center">
             <div className="text-white mx-12">
                 <ReactTyped strings={["Liteflux Enterprises"]} typeSpeed={40} startWhenVisible className="text-4xl font-bold uppercase" showCursor={false}/>
                 <p className="text-lg mt-4 mb-6">Powering your tomorrow with precision and quality</p>
