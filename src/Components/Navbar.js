@@ -49,20 +49,20 @@ const Navbar = () => {
             </div>
             <div className="navbar-end flex">
                 <ul className='menu menu-horizontal px-2 text-2xl'>
-                  <li>
-                      <Link to="/saved" className='flex items-center'>
-                        <div tabIndex={0} role='button' className="flex items-center">
-                            <div className="indicator">
-                                <CiHeart className="text-2xl"/>
-                                <span className="badge badge-sm indicator-item text-inherit bg-transparent border-none">0</span>
-                            </div>
-                        </div>
-                      </Link>
-                  </li>
                     <li>
+                        <Link to="/saved" className='flex items-center'>
+                            <div tabIndex={0} role='button' className="flex items-center">
+                                <div className="indicator">
+                                    <CiHeart className="text-2xl"/>
+                                    <span className="badge badge-sm indicator-item text-inherit bg-transparent border-none">0</span>
+                                </div>
+                            </div>
+                        </Link>
+                    </li>
+                    <li onClick={toggleDropdown}>
                       <div className="relative ml-4">
                         <div className="dropdown dropdown-end">
-                            <div tabIndex={0} role='button' className="flex items-center" onClick={toggleDropdown}>
+                            <div tabIndex={0} role='button' className="flex items-center">
                                 <div className="indicator">
                                     <MdOutlineShoppingBag className="text-2xl"/>
                                     <span className="badge badge-sm indicator-item text-inherit bg-transparent border-none">0</span>
