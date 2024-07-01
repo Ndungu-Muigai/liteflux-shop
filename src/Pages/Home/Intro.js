@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const Intro = () => {
     return (
-        <div className="mt-24 h-4/6 flex justify-end items-center bg-navy">
+        <div className="home mt-24 h-4/6 flex justify-end items-center bg-cover bg-center">
             <div className="text-white mx-12">
                 <h1 className="text-4xl font-bold uppercase">Liteflux Enterprises</h1>
                 <p className="text-lg mt-4 mb-6">Powering your tomorrow with precision and quality</p>

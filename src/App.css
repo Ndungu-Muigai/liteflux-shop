@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.home
+{
+    background-image: url(./Assets/Images/Solar\ panel.jpeg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
