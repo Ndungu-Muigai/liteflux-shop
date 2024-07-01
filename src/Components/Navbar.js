@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom';
 import { MdOutlineShoppingBag } from "react-icons/md";
 import { CiHeart } from "react-icons/ci";
 
-const Navbar = () => {
+const Navbar = () => 
+{
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
     const toggleDropdown = () =>setIsDropdownOpen(!isDropdownOpen)
