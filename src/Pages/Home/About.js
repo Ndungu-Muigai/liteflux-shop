@@ -3,7 +3,7 @@ import SolarImage from "../../Assets/Images/Solar-Panels.jpg";
 const About = () => 
 {
     return (
-        <div className="flex flex-col lg:flex-row lg:justify-between space-y-2 lg:space-x-4 m-2">
+        <section className="flex flex-col lg:flex-row lg:justify-between space-y-2 lg:space-x-4 m-2">
             <img src={SolarImage} alt="Solar Panel" className="w-full lg:w-2/5 rounded-lg hidden lg:block"/>
             <div className="w-full lg:w-3/5 leading-8">
                 <h2 className="font-bold uppercase text-center text-xl">Harness the power of the sun with our solar Panels!</h2>
@@ -16,7 +16,7 @@ const About = () =>
                     We analyze specific customer’s needs and then provide solutions that resolve them specifically and accordingly.
                 </p>
             </div>
-        </div>
+        </section>
     );
 }
 

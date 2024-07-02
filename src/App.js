@@ -1,4 +1,5 @@
 import './App.css';
+import "./Assets/CSS/Footer.css"
 import "./Assets/CSS/Gallery.css"
 import "./Assets/CSS/Services.css"
 import "./Assets/CSS/Stats.css"
@@ -9,6 +10,7 @@ import Navbar from './Components/Navbar';
 import Home from "./Pages/Home/Home"
 import Shop from "./Pages/Shop"
 import Contact from "./Pages/Contact"
+import Footer from './Components/Footer';
 
 function App() 
 {
@@ -21,6 +23,7 @@ function App()
         <Route exact path='/contact' element={<Contact/>}></Route>
         <Route exact path='*' element={<div>The page you're looking for doesn't exist</div>}></Route>
       </Routes>
+      <Footer/>
     </div>
   );
 }

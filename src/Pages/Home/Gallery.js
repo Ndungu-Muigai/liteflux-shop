@@ -1,13 +1,13 @@
-import MenAtWork from '../../Assets/Gallery Images/Men at work.jpg';
-import SolarInstallation from '../../Assets/Gallery Images/solar installation.jpg';
-import Electrical from '../../Assets/Gallery Images/Electrical.jpg';
-import Cabling from '../../Assets/Gallery Images/cabling.jpeg';
-import CCTV from '../../Assets/Gallery Images/cctv.jpeg';
-import NetworkCabling from '../../Assets/Gallery Images/network.jpeg';
-
-const Gallery = () => {
+import MenAtWork from '../../Assets/Gallery Images/Men at work.jpg'
+import SolarInstallation from '../../Assets/Gallery Images/solar installation.jpg'
+import Electrical from '../../Assets/Gallery Images/Electrical.jpg'
+import Cabling from '../../Assets/Gallery Images/cabling.jpeg'
+import CCTV from '../../Assets/Gallery Images/cctv.jpeg'
+import NetworkCabling from '../../Assets/Gallery Images/network.jpeg'
+const Gallery = () => 
+{
     return (
-        <>
+        <section>
             <div className="relative text-center mt-8 mb-12">
                 <h2 className="font-bold uppercase text-2xl services-h2 inline-block relative">Sample of our work</h2>
             </div>
@@ -31,8 +31,8 @@ const Gallery = () => {
                     <img src={NetworkCabling} alt="Network cabling" title="Network cabling" className="gallery-img"/>
                 </div>
             </div>
-        </>
+        </section>
     );
 };
 
-export default Gallery;
+export default Gallery

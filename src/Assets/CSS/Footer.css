@@ -1,0 +1,12 @@
+.footer-h3
+{
+    @apply text-xl font-semibold mb-2 uppercase underline;
+}
+.footer-link
+{
+    @apply flex items-center space-x-2;
+}
+.footer-icon
+{
+    @apply text-2xl ;
+}
