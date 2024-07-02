@@ -11,23 +11,23 @@ const Gallery = () =>
             <div className="relative text-center mt-8 mb-12">
                 <h2 className="font-bold uppercase text-2xl services-h2 inline-block relative">Sample of our work</h2>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mx-4">
-                <div className="h-64">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mx-12">
+                <div className="gallery">
                     <img src={MenAtWork} alt="Men at work" title="Solar Installation" className="gallery-img"/>
                 </div>
-                <div className="h-64">
+                <div className="gallery">
                     <img src={SolarInstallation} alt="Solar installation" title="Installed Solar Panels" className="gallery-img"/>
                 </div>
-                <div className="h-64">
+                <div className="gallery">
                     <img src={Electrical} alt="Electrical wiring" title="Electrical Wiring" className="gallery-img"/>
                 </div>
-                <div className="h-64">
+                <div className="gallery">
                     <img src={Cabling} alt="Structured cabling" title="Structured cabling" className="gallery-img"/>
                 </div>
-                <div className="h-64">
+                <div className="gallery">
                     <img src={CCTV} alt="CCTV installation" title="CCTV Installed" className="gallery-img"/>
                 </div>
-                <div className="h-64">
+                <div className="gallery">
                     <img src={NetworkCabling} alt="Network cabling" title="Network cabling" className="gallery-img"/>
                 </div>
             </div>

@@ -1,4 +1,8 @@
+.gallery
+{
+    @apply flex justify-center h-56;
+}
 .gallery-img
 {
-    @apply h-full w-full object-cover;
+    @apply h-full w-72 object-cover;
 }
