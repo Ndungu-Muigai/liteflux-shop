@@ -11,7 +11,7 @@ const Gallery = () =>
             <div className="relative text-center mt-8 mb-12">
                 <h2 className="font-bold uppercase text-2xl services-h2 inline-block relative">Sample of our work</h2>
             </div>
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mx-4">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mx-4">
                 <div className="h-64">
                     <img src={MenAtWork} alt="Men at work" title="Solar Installation" className="gallery-img"/>
                 </div>
