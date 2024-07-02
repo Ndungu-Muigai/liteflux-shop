@@ -1,0 +1,23 @@
+.services-h2::after 
+{
+    content: '';
+    background: #0d6efd;
+    width: 100px;
+    height: 5px;
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.service
+{
+    @apply p-4 border rounded-lg shadow-sm flex flex-col items-center hover:bg-background hover:text-white;
+}
+.service-icon
+{
+    @apply text-4xl mb-4;
+}
+.service-h3
+{
+    @apply font-semibold text-xl mb-2 text-center
+}

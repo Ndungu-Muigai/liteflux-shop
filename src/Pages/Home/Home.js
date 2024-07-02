@@ -1,11 +1,15 @@
 import Intro from "./Intro";
+import About from "./About";
+import Services from "./Services";
 
 const Home = () => 
 {
     return ( 
-        <div className="h-screen">
+        <>
             <Intro/>
-        </div>
+            <About/>
+            <Services/>
+        </>
      );
 }
  
