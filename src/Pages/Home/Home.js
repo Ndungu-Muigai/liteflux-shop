@@ -3,6 +3,7 @@ import About from "./About";
 import Services from "./Services";
 import Gallery from "./Gallery";
 import Stats from "./Stats";
+import Footer from "../../Components/Footer"
 
 const Home = () => 
 {
@@ -13,6 +14,7 @@ const Home = () =>
             <Services/>
             <Gallery/>
             <Stats/>
+            <Footer/>
         </>
      );
 }

@@ -4,7 +4,7 @@
 }
 .footer-link
 {
-    @apply flex items-center space-x-2;
+    @apply flex items-center space-x-2 hover:border-b-2 hover:border-blue-500 w-fit;
 }
 .footer-icon
 {

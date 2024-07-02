@@ -16,7 +16,7 @@ const Footer = () =>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                     <div>
                         <h3 className="footer-h3">Services</h3>
-                        <ul className="space-y-2">
+                        <ul className="space-y-4">
                             <li>Structured Cabling</li>
                             <li>Security Systems installation</li>
                             <li>Solar installation and maintenance</li>
@@ -25,7 +25,7 @@ const Footer = () =>
                     </div>
                     <div>
                         <h3 className="footer-h3">Find us on social media</h3>
-                        <div className="flex flex-col space-y-2">
+                        <div className="flex flex-col space-y-4">
                             <Link to="whatsapp://send?text=Hello. I'd like to inquire about your products&phone=+254700375948" target="_blank" rel="noopener noreferrer" className="footer-link">
                                 <FaWhatsapp className="text-green-500 footer-icon" />
                                 <p>WhatsApp</p>
@@ -46,7 +46,7 @@ const Footer = () =>
                     </div>
                     <div>
                         <h3 className="footer-h3">Quick Links</h3>
-                        <ul className="space-y-2">
+                        <ul className="space-y-4">
                             <li>
                                 <Link to="/" className="hover:border-b-2 hover:border-blue-500">Home</Link>
                             </li>
