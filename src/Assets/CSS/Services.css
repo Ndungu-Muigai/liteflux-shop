@@ -1,4 +1,4 @@
-.services-h2::after 
+.services-h2::after, .stats-h3::after 
 {
     content: '';
     background: #0d6efd;

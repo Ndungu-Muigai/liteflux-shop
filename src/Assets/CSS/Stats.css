@@ -1,0 +1,16 @@
+.stat
+{
+    @apply flex flex-col items-center p-4 bg-white shadow-lg rounded-lg;
+}
+.stat-icon
+{
+    @apply text-4xl mb-2;
+}
+.stat-h3
+{
+    @apply text-3xl font-bold;
+}
+.stat-p
+{
+    @apply text-gray-600;
+}

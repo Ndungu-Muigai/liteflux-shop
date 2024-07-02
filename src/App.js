@@ -1,5 +1,6 @@
 import './App.css';
 import "./Assets/CSS/Services.css"
+import "./Assets/CSS/Stats.css"
 
 import { Routes, Route } from 'react-router-dom';
 
