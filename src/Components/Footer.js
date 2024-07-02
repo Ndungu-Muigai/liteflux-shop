@@ -1,12 +1,13 @@
-import { FaWhatsapp, FaFacebook } from "react-icons/fa";
-import { MdOutlinePhoneCallback } from "react-icons/md";
-import { CiMail } from "react-icons/ci";
-import { FaLocationDot } from "react-icons/fa6";
-import { Link } from "react-router-dom";
+import { FaWhatsapp, FaFacebook } from "react-icons/fa"
+import { MdOutlinePhoneCallback } from "react-icons/md"
+import { CiMail } from "react-icons/ci"
+import { FaLocationDot } from "react-icons/fa6"
+import { Link } from "react-router-dom"
 
-const Footer = () => {
-    const date = new Date();
-    const year = date.getFullYear();
+const Footer = () => 
+{
+    const date = new Date()
+    const year = date.getFullYear()
 
     return (
         <footer className="py-6 mt-2">
@@ -79,4 +80,4 @@ const Footer = () => {
     );
 }
 
-export default Footer;
+export default Footer
