@@ -13,22 +13,22 @@ const Gallery = () => {
             </div>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mx-4">
                 <div className="h-64">
-                    <img src={MenAtWork} alt="Men at work" title="Solar Installation" className="h-full w-full object-cover"/>
+                    <img src={MenAtWork} alt="Men at work" title="Solar Installation" className="gallery-img"/>
                 </div>
                 <div className="h-64">
-                    <img src={SolarInstallation} alt="Solar installation" title="Installed Solar Panels" className="h-full w-full object-cover"/>
+                    <img src={SolarInstallation} alt="Solar installation" title="Installed Solar Panels" className="gallery-img"/>
                 </div>
                 <div className="h-64">
-                    <img src={Electrical} alt="Electrical wiring" title="Electrical Wiring" className="h-full w-full object-cover"/>
+                    <img src={Electrical} alt="Electrical wiring" title="Electrical Wiring" className="gallery-img"/>
                 </div>
                 <div className="h-64">
-                    <img src={Cabling} alt="Structured cabling" title="Structured cabling" className="h-full w-full object-cover"/>
+                    <img src={Cabling} alt="Structured cabling" title="Structured cabling" className="gallery-img"/>
                 </div>
                 <div className="h-64">
-                    <img src={CCTV} alt="CCTV installation" title="CCTV Installed" className="h-full w-full object-cover"/>
+                    <img src={CCTV} alt="CCTV installation" title="CCTV Installed" className="gallery-img"/>
                 </div>
                 <div className="h-64">
-                    <img src={NetworkCabling} alt="Network cabling" title="Network cabling" className="h-full w-full object-cover"/>
+                    <img src={NetworkCabling} alt="Network cabling" title="Network cabling" className="gallery-img"/>
                 </div>
             </div>
         </>

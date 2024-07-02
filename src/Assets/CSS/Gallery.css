@@ -1,0 +1,4 @@
+.gallery-img
+{
+    @apply h-full w-full object-cover;
+}

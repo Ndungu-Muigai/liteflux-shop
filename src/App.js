@@ -1,4 +1,5 @@
 import './App.css';
+import "./Assets/CSS/Gallery.css"
 import "./Assets/CSS/Services.css"
 import "./Assets/CSS/Stats.css"
 
