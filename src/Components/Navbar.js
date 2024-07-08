@@ -71,7 +71,6 @@ const Navbar = () =>
                             </div>
                             <div className={`card card-compact dropdown-content bg-background z-[1] mt-9 w-64 shadow-lg ${isDropdownOpen ? 'block' : 'hidden'}`} onClick={closeDropdown}>
                                 <div className="card-body max-h-72 overflow-y-auto">
-                                  {/* <span className="text-lg font-bold">0 Items</span> */}
                                   <div className='flex justify-between'>
                                     <img src={Logo} alt='Product' className='w-20'/>
                                     <div>
