@@ -9,7 +9,7 @@ const Services = () => {
             <div className="relative text-center mt-8 mb-12">
                 <h2 className="font-bold uppercase text-2xl services-h2 inline-block relative">Our Services</h2>
             </div>
-            <div className="grid gap-5 m-2 md:m-10 md:grid-cols-2">
+            <div className="grid gap-5 m-2 md:m-10 md:grid-cols-2 lg:grid-cols-4">
                 <div className="service">
                     <FaNetworkWired className="service-icon"/>
                     <h3 className="service-h3">Structured cabling</h3>
