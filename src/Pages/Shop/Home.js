@@ -1,4 +1,5 @@
-import Footer from "../Components/Footer";
+import Footer from "../../Components/Footer";
+import Slider from 'react-slick'
 
 import { CiDeliveryTruck } from "react-icons/ci";
 import { BsCashCoin } from "react-icons/bs";
@@ -9,12 +10,39 @@ import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from 'swiper/module
 
 const Shop = () => 
 {
+    const settings = 
+    {
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 2500,
+    };
+    
+    const images = [
+        'https://cdn.pixabay.com/photo/2016/11/22/20/36/electrical-1852618_1280.jpg', // Sockets
+        'https://cdn.pixabay.com/photo/2019/06/17/19/27/camera-4283934_1280.jpg', // CCTV Cameras
+        'https://cdn.pixabay.com/photo/2016/12/26/17/28/solar-panel-1932731_1280.jpg', // Solar Panels
+        'https://cdn.pixabay.com/photo/2014/12/11/11/52/street-lights-564951_1280.jpg', // Street Lights
+    ]
     return (
         <>
-            <div className="w-full border border-gray-300 p-2">
-                <h1 className="uppercase text-center font-bold">The intro image gallery goes here</h1>
+            <div className="w-full border border-b-0 border-gray-300 p-2 mb-5 overflow-hidden">
+                <Slider {...settings}>
+                    {
+                        images.map((src, index) => 
+                        (
+                            <div key={index} className="flex justify-center items-center">
+                                <img src={src} alt={`Slide ${index + 1}`} className="w-full object-cover h-72" />
+                            </div>
+                        ))
+                    }
+                </Slider>
             </div>
-            <div className="grid grid-cols-1 gap-3 mt-3 md:gap-0 md:flex md:justify-around md:items-center bg-gray-100 py-4 rounded-lg shadow-md">
+
+            <div className="grid grid-cols-1 gap-3 mt-3 md:mt-8 md:gap-0 md:flex md:justify-around md:items-center bg-gray-100 py-4 rounded-lg shadow-md ">
                 <div className="flex md:flex-col items-center px-2 md:px-0">
                     <CiDeliveryTruck className="text-3xl mb-2"/>
                     <span className="text-sm font-medium px-4">Fast Free Shipping over KES {(1500).toLocaleString()}</span>
@@ -28,6 +56,7 @@ const Shop = () =>
                     <span className="text-sm font-medium px-4">Hassle-Free Warranty</span>
                 </div>
             </div>
+            
             <div className="mt-3 px-2 lg:px-12">
                 <Link to={"/categories/sockets"}>
                     <div className="category" style={{ backgroundImage: "url('https://lightingequipmentsales.com/wp-content/uploads/2017/11/LED-Bulb-Types-740x416.jpg')" }}>

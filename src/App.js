@@ -8,13 +8,15 @@ import 'react-toastify/dist/ReactToastify.css';
 import 'swiper/css'
 import 'swiper/css/autoplay'
 import 'swiper/css/pagination'
+import 'slick-carousel/slick/slick.css'
+import 'slick-carousel/slick/slick-theme.css'
 
 import { Slide, ToastContainer } from 'react-toastify';
 import { Routes, Route } from 'react-router-dom';
 
 import Navbar from './Components/Navbar';
 import Home from "./Pages/Home/Home"
-import Shop from "./Pages/Shop"
+import Shop from "./Pages/Shop/Home"
 import Contact from "./Pages/Contact"
 
 function App() 
