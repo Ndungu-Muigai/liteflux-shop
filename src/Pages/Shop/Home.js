@@ -58,6 +58,7 @@ const Shop = () =>
             </div>
             
             <div className="mt-3 px-2 lg:px-12">
+                <h1 className="uppercase font-bold text-center text-2xl my-10 underline">Product categories</h1>
                 <Link to={"/categories/sockets"}>
                     <div className="category" style={{ backgroundImage: "url('https://lightingequipmentsales.com/wp-content/uploads/2017/11/LED-Bulb-Types-740x416.jpg')" }}>
                         <span className="category-span">Sockets</span>
@@ -82,7 +83,7 @@ const Shop = () =>
                 </div>
             </div>
             <div className="mt-3 px-2 lg:px-12">
-                <h1 className="uppercase text-center font-bold text-xl  mb-4">Product display</h1>
+                <h1 className="uppercase text-center font-bold text-2xl underline my-10">Product display</h1>
                 <Swiper modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]} spaceBetween={15} slidesPerView={1} pagination={{ clickable: true }} autoplay={{ delay: 2500,disableOnInteraction: false }} breakpoints={{ 640: { slidesPerView: 2, spaceBetween: 20,}, 768: { slidesPerView: 3,  spaceBetween: 15,}, 1024: {slidesPerView: 3, spaceBetween: 15,}}}>
                     <SwiperSlide className="pb-10">
                         <Link to={`/products/test`} className="card border border-gray-300">
