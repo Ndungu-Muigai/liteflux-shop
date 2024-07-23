@@ -1,10 +1,10 @@
 import Footer from "../../Components/Footer";
 import Slider from 'react-slick'
 
-import CCTV from "../../Assets/Shop Intro Images/CCTV.jpeg"
-import Lighting from "../../Assets/Shop Intro Images/Lighting.jpeg"
-import Sockets from "../../Assets/Shop Intro Images/Sockets.jpeg"
-import Solar from "../../Assets/Shop Intro Images/Solar.jpg"
+import CCTV from "../../Assets/Shop Category Images/CCTV.jpeg"
+import Lighting from "../../Assets/Shop Category Images/Lighting.jpeg"
+import Sockets from "../../Assets/Shop Category Images/Sockets.jpeg"
+import Solar from "../../Assets/Shop Category Images/Solar.jpg"
 
 import { CiDeliveryTruck } from "react-icons/ci";
 import { BsCashCoin } from "react-icons/bs";
