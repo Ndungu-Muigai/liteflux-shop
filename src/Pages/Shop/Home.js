@@ -4,6 +4,7 @@ import Slider from 'react-slick'
 import CCTV from "../../Assets/Shop Intro Images/CCTV.jpeg"
 import Lighting from "../../Assets/Shop Intro Images/Lighting.jpeg"
 import Sockets from "../../Assets/Shop Intro Images/Sockets.jpeg"
+import Solar from "../../Assets/Shop Intro Images/Solar.jpg"
 
 import { CiDeliveryTruck } from "react-icons/ci";
 import { BsCashCoin } from "react-icons/bs";
@@ -76,7 +77,7 @@ const Shop = () =>
                         </div>
                     </Link>
                     <Link to={"/categories/solar-panels"}>
-                        <div className="category " style={{ backgroundImage: "url('https://lightingequipmentsales.com/wp-content/uploads/2017/11/LED-Bulb-Types-740x416.jpg')" }}>
+                        <div className="category " style={{ backgroundImage: `url(${Solar})`}}>
                             <span className="category-span">Solar Panels</span>
                         </div>
                     </Link>
