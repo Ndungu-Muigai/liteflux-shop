@@ -3,7 +3,9 @@ import "./Assets/CSS/Footer.css"
 import "./Assets/CSS/Gallery.css"
 import "./Assets/CSS/Services.css"
 import "./Assets/CSS/Stats.css"
+import 'react-toastify/dist/ReactToastify.css';
 
+import { Slide, ToastContainer } from 'react-toastify';
 import { Routes, Route } from 'react-router-dom';
 
 import Navbar from './Components/Navbar';
@@ -15,6 +17,7 @@ function App()
 {
   return (
     <div className='bg-slate-100 min-h-screen text-black'>
+      <ToastContainer position='top-right' autoClose={3000} hideProgressBar={false} newestOnTop closeOnClick rtl={false} pauseOnFocusLoss={false} draggable pauseOnHover={false} theme='light' transition={Slide}/>
       <Navbar/>
       <div className='mt-24'>
         <Routes>

@@ -6,7 +6,10 @@ module.exports = {
       colors:
       {
         background: "#005477",
-        navy: "#000034"
+        navy: "#000034",
+        screens: {
+          '2xl': '1536px',
+        },
       }
     },
   },
