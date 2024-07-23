@@ -1,6 +1,10 @@
 import Footer from "../../Components/Footer";
 import Slider from 'react-slick'
 
+import CCTV from "../../Assets/Shop Intro Images/CCTV.jpeg"
+import Lighting from "../../Assets/Shop Intro Images/Lighting.jpeg"
+import Solar from "../../Assets/Shop Intro Images/Solar.jpeg"
+
 import { CiDeliveryTruck } from "react-icons/ci";
 import { BsCashCoin } from "react-icons/bs";
 import { AiOutlineFileProtect } from "react-icons/ai";
@@ -21,12 +25,7 @@ const Shop = () =>
         autoplaySpeed: 2500,
     };
     
-    const images = [
-        'https://cdn.pixabay.com/photo/2016/11/22/20/36/electrical-1852618_1280.jpg', // Sockets
-        'https://cdn.pixabay.com/photo/2019/06/17/19/27/camera-4283934_1280.jpg', // CCTV Cameras
-        'https://cdn.pixabay.com/photo/2016/12/26/17/28/solar-panel-1932731_1280.jpg', // Solar Panels
-        'https://cdn.pixabay.com/photo/2014/12/11/11/52/street-lights-564951_1280.jpg', // Street Lights
-    ]
+    const images = [CCTV, Lighting, Solar]
     return (
         <>
             <div className="w-full border border-b-0 border-gray-300 p-2 mb-5 overflow-hidden">
