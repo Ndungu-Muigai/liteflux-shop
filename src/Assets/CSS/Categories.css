@@ -1,0 +1,8 @@
+.category
+{
+    @apply relative w-full h-64 bg-cover bg-center rounded-lg overflow-hidden mb-4 border border-gray-300;
+}
+.category-span
+{
+    @apply absolute text-black font-bold text-xl px-3 py-2;
+}
