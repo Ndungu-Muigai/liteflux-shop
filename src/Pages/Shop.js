@@ -17,7 +17,7 @@ const Shop = () =>
             <div className="grid grid-cols-1 gap-3 mt-3 md:gap-0 md:flex md:justify-around md:items-center bg-gray-100 py-4 rounded-lg shadow-md">
                 <div className="flex md:flex-col items-center px-2 md:px-0">
                     <CiDeliveryTruck className="text-3xl mb-2"/>
-                    <span className="text-sm font-medium px-4">Fast Free Shipping over KES1500</span>
+                    <span className="text-sm font-medium px-4">Fast Free Shipping over KES {(1500).toLocaleString()}</span>
                 </div>
                 <div className="flex md:flex-col items-center px-2 md:px-0">
                     <BsCashCoin className="text-3xl mb-2"/>
@@ -63,7 +63,7 @@ const Shop = () =>
                             <div className="card-body">
                                 <h2 className="card-title">Product title</h2>
                                 <p className="card-text">This is a longer card with supporting text below as a natural</p>
-                                <p className="font-bold uppercase text-lg">KES {1500}</p>
+                                <p className="font-bold uppercase text-lg">KES {(1500).toLocaleString()}</p>
                             </div>
                         </Link>
                     </SwiperSlide>
@@ -75,7 +75,7 @@ const Shop = () =>
                             <div className="card-body">
                                 <h2 className="card-title">Product title</h2>
                                 <p className="card-text">This is a longer card with supporting text below as a natural</p>
-                                <p className="font-bold uppercase text-lg">KES {1500}</p>
+                                <p className="font-bold uppercase text-lg">KES {(1500).toLocaleString()}</p>
                             </div>
                         </Link>
                     </SwiperSlide>
@@ -87,7 +87,7 @@ const Shop = () =>
                             <div className="card-body">
                                 <h2 className="card-title">Product title</h2>
                                 <p className="card-text">This is a longer card with supporting text below as a natural</p>
-                                <p className="font-bold uppercase text-lg">KES {1500}</p>
+                                <p className="font-bold uppercase text-lg">KES {(1500).toLocaleString()}</p>
                             </div>
                         </Link>
                     </SwiperSlide>
@@ -99,7 +99,7 @@ const Shop = () =>
                             <div className="card-body">
                                 <h2 className="card-title">Product title</h2>
                                 <p className="card-text">This is a longer card with supporting text below as a natural</p>
-                                <p className="font-bold uppercase text-lg">KES {1500}</p>
+                                <p className="font-bold uppercase text-lg">KES {(1500).toLocaleString()}</p>
                             </div>
                         </Link>
                     </SwiperSlide>
