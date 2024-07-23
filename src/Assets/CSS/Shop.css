@@ -6,3 +6,7 @@
 {
     @apply absolute text-black font-bold text-xl px-3 py-2;
 }
+.card-title
+{
+    @apply font-bold uppercase
+}

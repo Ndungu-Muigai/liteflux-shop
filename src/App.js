@@ -1,10 +1,13 @@
-import './App.css';
-import "./Assets/CSS/Categories.css"
+import './App.css'
 import "./Assets/CSS/Footer.css"
 import "./Assets/CSS/Gallery.css"
 import "./Assets/CSS/Services.css"
+import "./Assets/CSS/Shop.css"
 import "./Assets/CSS/Stats.css"
 import 'react-toastify/dist/ReactToastify.css';
+import 'swiper/css'
+import 'swiper/css/autoplay'
+import 'swiper/css/pagination'
 
 import { Slide, ToastContainer } from 'react-toastify';
 import { Routes, Route } from 'react-router-dom';
