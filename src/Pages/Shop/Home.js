@@ -3,7 +3,7 @@ import Slider from 'react-slick'
 
 import CCTV from "../../Assets/Shop Intro Images/CCTV.jpeg"
 import Lighting from "../../Assets/Shop Intro Images/Lighting.jpeg"
-import Solar from "../../Assets/Shop Intro Images/Solar.jpeg"
+import Sockets from "../../Assets/Shop Intro Images/Sockets.jpeg"
 
 import { CiDeliveryTruck } from "react-icons/ci";
 import { BsCashCoin } from "react-icons/bs";
@@ -25,7 +25,13 @@ const Shop = () =>
         autoplaySpeed: 2500,
     };
     
-    const images = [CCTV, Lighting, Solar]
+    const images = [
+        'https://cdn.pixabay.com/photo/2016/11/22/20/36/electrical-1852618_1280.jpg', 
+        'https://cdn.pixabay.com/photo/2019/06/17/19/27/camera-4283934_1280.jpg',
+        'https://cdn.pixabay.com/photo/2016/12/26/17/28/solar-panel-1932731_1280.jpg', 
+        'https://cdn.pixabay.com/photo/2014/12/11/11/52/street-lights-564951_1280.jpg', 
+    ]
+
     return (
         <>
             <div className="w-full border border-b-0 border-gray-300 p-2 mb-5 overflow-hidden">
@@ -34,7 +40,7 @@ const Shop = () =>
                         images.map((src, index) => 
                         (
                             <div key={index} className="flex justify-center items-center">
-                                <img src={src} alt={`Slide ${index + 1}`} className="w-full object-cover h-72" />
+                                <img src={src} alt={`Slide ${index + 1}`} className="w-full h-auto max-h-72 object-cover"/>
                             </div>
                         ))
                     }
@@ -59,13 +65,13 @@ const Shop = () =>
             <div className="mt-3 px-2 lg:px-12">
                 <h1 className="uppercase font-bold text-center text-2xl my-10 underline">Product categories</h1>
                 <Link to={"/categories/sockets"}>
-                    <div className="category" style={{ backgroundImage: "url('https://lightingequipmentsales.com/wp-content/uploads/2017/11/LED-Bulb-Types-740x416.jpg')" }}>
+                    <div className="category" style={{ backgroundImage: `url(${Sockets})` }}>
                         <span className="category-span">Sockets</span>
                     </div>
                 </Link>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                     <Link to={"/categories/cctv-cameras"}>
-                        <div className="category" style={{ backgroundImage: "url('https://lightingequipmentsales.com/wp-content/uploads/2017/11/LED-Bulb-Types-740x416.jpg')" }}>
+                        <div className="category" style={{ backgroundImage: `url(${CCTV})` }}>
                             <span className="category-span">CCTV Cameras</span>
                         </div>
                     </Link>
@@ -75,7 +81,7 @@ const Shop = () =>
                         </div>
                     </Link>
                     <Link to={"/categories/street-lights"}>
-                        <div className="category" style={{ backgroundImage: "url('https://lightingequipmentsales.com/wp-content/uploads/2017/11/LED-Bulb-Types-740x416.jpg')" }}>
+                        <div className="category" style={{ backgroundImage: `url(${Lighting})` }}>
                             <span className="category-span">Street Lights</span>
                         </div>
                     </Link>
