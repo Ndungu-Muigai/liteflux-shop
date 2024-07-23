@@ -5,13 +5,14 @@ import Footer from "../Components/Footer"
 
 const Contact = () => 
 {
+    const toEmail="ndungu.muigai01@gmail.com"
     const [formData, setFormData]=useState(
     {
         name: '',
         email: '',
         subject: "",
         message: '',
-        toEmail: "ndungu.muigai01@gmail.com"
+        toEmail: toEmail
     })
 
     const handleChange = e => setFormData({...formData,[e.target.id]: e.target.value})
@@ -42,7 +43,7 @@ const Contact = () =>
                             email: '',
                             subject: "",
                             message: '',
-                            toEmail: "ndungu.muigai01@gmail.com"
+                            toEmail: toEmail
                         })
                     })
                 :
