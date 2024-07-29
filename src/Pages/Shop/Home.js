@@ -43,9 +43,10 @@ const Shop = () =>
                     {
                         images.map((src, index) => 
                         (
-                            <div key={index} className="flex justify-center items-center">
-                                <img src={src} alt={`Slide ${index}`} className="w-full h-auto max-h-80 object-scale-down"/>
-                            </div>
+                            <img key={index} src={src} alt={`Slide ${index}`} className="w-full h-auto max-h-80 object-cover"/>
+                            // <div key={index} className="flex justify-center items-center">
+                            //     <img src={src} alt={`Slide ${index}`} className="w-full h-auto max-h-80 object-scale-down"/>
+                            // </div>
                         ))
                     }
                 </Slider>
