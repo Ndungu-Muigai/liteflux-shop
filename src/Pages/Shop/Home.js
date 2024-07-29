@@ -8,7 +8,7 @@ import Solar from "../../Assets/Shop Category Images/Solar.jpg"
 
 import SlidingImage1 from "../../Assets/Sliding images/1.jpeg"
 import SlidingImage2 from "../../Assets/Sliding images/2.jpeg"
-
+a
 import { CiDeliveryTruck } from "react-icons/ci"
 import { BsCashCoin } from "react-icons/bs"
 import { AiOutlineFileProtect } from "react-icons/ai"
