@@ -38,15 +38,13 @@ const Shop = () =>
 
     return (
         <>
-            <div className="w-full p-1 overflow-hidden mb-5 ">
+            <div className="w-full p-1 overflow-hidden mb-5">
                 <Slider {...settings}>
                     {
-                        images.map((src, index) => 
-                        (
-                            <img key={index} src={src} alt={`Slide ${index}`} className="w-full h-auto max-h-80"/>
-                            // <div key={index} className="flex justify-center items-center">
-                            //     <img src={src} alt={`Slide ${index}`} className="w-full h-auto max-h-80 object-scale-down"/>
-                            // </div>
+                        images.map((src, index) => (
+                            <div key={index} className="flex justify-center items-center w-full">
+                                <img src={src} alt={`Slide ${index}`} className="w-full h-auto max-h-80 object-contain"/>
+                            </div>
                         ))
                     }
                 </Slider>
