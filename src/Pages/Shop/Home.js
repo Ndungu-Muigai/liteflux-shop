@@ -38,7 +38,7 @@ const Shop = () =>
 
     return (
         <>
-            <div className="w-full p-1 mb-5 ">
+            <div className="w-full p-1 overflow-hidden mb-5 ">
                 <Slider {...settings}>
                     {
                         images.map((src, index) => 
