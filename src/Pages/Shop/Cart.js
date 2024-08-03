@@ -21,7 +21,7 @@ const Cart = () =>
             </div>
             <div className="flex flex-col md:flex-row justify-between md:mx-2 gap-4 p-4">
                 <div className="w-full md:w-2/3 mb-4 md:mb-0">
-                    <h2 className="font-bold text-xl uppercase text-center md:text-left mb-4">Shopping cart details</h2>
+                    <h2 className="font-bold px-4 text-xl uppercase text-center md:text-left mb-4">Shopping cart details</h2>
                     <div className="relative flex items-center bg-gray-100 p-4 rounded-lg shadow-md">
                         <img src={Logo} alt="Product name" className="h-24 w-24 object-cover rounded-lg"/>
                         <div className="flex flex-col ml-4 flex-grow">
@@ -40,15 +40,15 @@ const Cart = () =>
                     <h2 className="font-bold text-xl uppercase text-center md:text-left">Order summary</h2>
                     <hr className="mb-4"/>
                     <div className="flex justify-between">
-                    	<p className="text-lg mb-2">Subtotal:</p>
+                    	<p className="text-lg mb-2">Subtotal</p>
                         <span className="font-semibold">KES 1,500</span>
                     </div>
                     <div className="flex justify-between">
-                        <p className="text-lg mb-2">Tax:</p>
+                        <p className="text-lg mb-2">Tax</p>
                         <span className="font-semibold">KES 0</span>
                     </div>
                     <div className="flex justify-between">
-                        <p className="text-lg mb-4">Total:</p>
+                        <p className="text-lg mb-4">Total</p>
                         <span className="font-semibold">KES 1,500</span>
                     </div>
                     <Link to="/checkout" className="btn w-full bg-background text-white py-2 rounded-lg shadow hover:bg-blue-700 transition duration-300 mb-4">Checkout</Link>

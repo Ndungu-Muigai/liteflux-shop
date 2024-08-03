@@ -1,4 +1,5 @@
 import './App.css'
+import "./Assets/CSS/Checkout.css"
 import "./Assets/CSS/Footer.css"
 import "./Assets/CSS/Gallery.css"
 import "./Assets/CSS/Services.css"
@@ -21,6 +22,7 @@ import Shop from "./Pages/Shop/Home"
 import Contact from "./Pages/Contact"
 import ProductCollection from './Pages/Shop/Product Collection'
 import Cart from './Pages/Shop/Cart'
+import Checkout from './Pages/Shop/Checkout'
 
 function App() 
 {
@@ -36,6 +38,7 @@ function App()
           <Route exact path='/contact' element={<Contact/>}></Route>
           <Route exact path='/collections/:collection' element={<ProductCollection/>}></Route>
           <Route exact path='/cart' element={<Cart/>}></Route>
+          <Route exact path='/checkout' element={<Checkout/>}></Route>
           <Route exact path='*' element={<div>The page you're looking for doesn't exist</div>}></Route>
         </Routes>
       </div>
