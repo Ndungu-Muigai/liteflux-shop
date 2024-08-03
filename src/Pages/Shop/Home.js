@@ -47,7 +47,7 @@ const Shop = () =>
                         (
                             <div key={index} className="flex justify-center items-center w-full">
                             {/* Option 1: Maintain aspect ratio with empty space */}
-                            <img src={src} alt={`Slide ${index}`} className="w-full h-96 object-contain"/>
+                            <img src={src} alt={`Slide ${index + 1}`} className="w-full h-96 object-contain"/>
 
                             {/* Option 2: Fill container with potential cropping (alternative) */}
                             {/* <img src={src} alt={`Slide ${index}`} className="w-full h-auto object-cover" /> */}
