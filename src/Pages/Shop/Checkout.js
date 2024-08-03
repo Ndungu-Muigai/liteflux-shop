@@ -68,7 +68,7 @@ const Checkout = () => {
 
             <div className="flex flex-col md:flex-row justify-between md:mx-2 gap-4 p-4">
                 <div className="w-full md:w-2/3 mb-4 px-4 md:mb-0 bg-gray-100 p-6 rounded-lg shadow-md">
-                    <h2 className="font-bold text-xl px-4 uppercase text-center md:text-left mb-4">Shipping address</h2>
+                    <h2 className="font-bold text-xl uppercase text-center md:text-left mb-4">Shipping address</h2>
                     <hr className="mb-4" />
                     <div className="relative flex items-center">
                         <form className="w-full">
