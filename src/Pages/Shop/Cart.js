@@ -21,7 +21,7 @@ const Cart = () =>
             </div>
             <div className="flex flex-col md:flex-row justify-between md:mx-2 gap-4 p-4">
                 <div className="w-full md:w-2/3 mb-4 md:mb-0">
-                    <h2 className="font-bold text-xl uppercase mb-4">Shopping cart details</h2>
+                    <h2 className="font-bold text-xl uppercase text-center md:text-left mb-4">Shopping cart details</h2>
                     <div className="relative flex items-center bg-gray-100 p-4 rounded-lg shadow-md">
                         <img src={Logo} alt="Product name" className="h-24 w-24 object-cover rounded-lg"/>
                         <div className="flex flex-col ml-4 flex-grow">
@@ -37,7 +37,8 @@ const Cart = () =>
                     </div>
                 </div>
                 <div className="w-full md:w-1/3 bg-gray-100 p-4 rounded-lg shadow-md">
-                    <h2 className="font-bold text-xl uppercase mb-4">Order summary</h2>
+                    <h2 className="font-bold text-xl uppercase text-center md:text-left">Order summary</h2>
+                    <hr className="mb-4"/>
                     <div className="flex justify-between">
                     	<p className="text-lg mb-2">Subtotal:</p>
                         <span className="font-semibold">KES 1,500</span>
