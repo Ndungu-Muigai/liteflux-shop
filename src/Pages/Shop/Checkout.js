@@ -5,7 +5,8 @@ import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import { KenyaAdministrativeDivisions } from 'kenya-administrative-divisions'
 
-const Checkout = () => {
+const Checkout = () => 
+{
     // Initializing the Kenya Admin
     const kenyaAdmin = new KenyaAdministrativeDivisions()
 
