@@ -33,7 +33,7 @@ const Shop = () =>
     
     const images = [
         SlidingImage1, 
-        SlidingImage2,,
+        SlidingImage2,
         'https://cdn.pixabay.com/photo/2016/12/26/17/28/solar-panel-1932731_1280.jpg', 
         'https://cdn.pixabay.com/photo/2014/12/11/11/52/street-lights-564951_1280.jpg', 
     ]
