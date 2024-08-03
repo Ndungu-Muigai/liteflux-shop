@@ -51,7 +51,7 @@ const Cart = () =>
                         <p className="text-lg mb-4">Total:</p>
                         <span className="font-semibold">KES 1,500</span>
                     </div>
-                    <button className="w-full bg-background text-white py-2 rounded-lg shadow hover:bg-blue-700 transition duration-300 mb-4">Checkout</button>
+                    <Link to="/checkout" className="btn w-full bg-background text-white py-2 rounded-lg shadow hover:bg-blue-700 transition duration-300 mb-4">Checkout</Link>
                     <Link to="/shop" className="text-blue-500 mx-auto hover:underline">Continue shopping</Link>
                 </div>
             </div>
