@@ -14,6 +14,7 @@ import 'slick-carousel/slick/slick-theme.css'
 import { Slide, ToastContainer } from 'react-toastify';
 import { Routes, Route } from 'react-router-dom';
 
+import ScrollToTop from './Components/ScrollToTop'
 import Navbar from './Components/Navbar';
 import Home from "./Pages/Home/Home"
 import Shop from "./Pages/Shop/Home"
@@ -27,6 +28,7 @@ function App()
       <ToastContainer position='top-right' autoClose={3000} hideProgressBar={false} newestOnTop closeOnClick rtl={false} pauseOnFocusLoss={false} draggable pauseOnHover={false} theme='light' transition={Slide}/>
       <Navbar/>
       <div className='mt-24'>
+      <ScrollToTop/>
         <Routes>
           <Route exact path='/' element={<Home/>}></Route>
           <Route exact path='/shop' element={<Shop/>}></Route>
