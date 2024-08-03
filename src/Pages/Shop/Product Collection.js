@@ -128,7 +128,7 @@ const ProductCollection = () =>
             <div className="flex justify-center items-center mt-4">
                 {
                     Array.from({ length: totalPages }, (_, index) => (
-                        <button key={index} onClick={(event) => handlePageChange(event, index + 1)} className={`px-4 py-2 mx-1 ${index + 1 === currentPage ? 'bg-blue-500 text-white' : 'bg-gray-200'}`}>{index + 1}</button>
+                        <button key={index} onClick={(event) => handlePageChange(event, index + 1)} className={`px-4 py-2 mx-1 ${index + 1 === currentPage ? 'bg-background text-white' : 'bg-gray-200'}`}>{index + 1}</button>
                     ))
                 }
             </div>
