@@ -45,8 +45,8 @@ const Checkout = () =>
     {
         const matchingConstituencies = counties.find(d => d.county_name === checkoutDetails.county)
         setConstituencies(matchingConstituencies ? matchingConstituencies.constituencies : [])
-        setWards([])
-        setCheckoutDetails(prev => ({ ...prev, sub_county: "", ward: "" }))
+        setWards([])// Clear wards when county changes
+        setCheckoutDetails(prev => ({ ...prev, sub_county: "", ward: "" }))// Reset sub_county and ward
     }, [checkoutDetails.county, counties])
 
     // useEffect hook to update the wards based on the sub county
@@ -54,7 +54,7 @@ const Checkout = () =>
     {
         const matchingWards = constituencies.find(s => s.constituency_name === checkoutDetails.sub_county)
         setWards(matchingWards ? matchingWards.wards : [])
-        setCheckoutDetails(prev => ({ ...prev, ward: "" }))
+        setCheckoutDetails(prev => ({ ...prev, ward: "" }))// Reset ward when sub_county changes
     }, [checkoutDetails.sub_county, constituencies])
 
     return (
