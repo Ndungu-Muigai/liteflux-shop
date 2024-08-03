@@ -33,7 +33,7 @@ const Cart = () =>
                             </div>
                         </div>
                         <p className="absolute bottom-4 right-4 text-lg font-semibold">KES 1,500</p>
-                        <FaTrashAlt className="ml-4 absolute top-2 right-2 text-xl cursor-pointer hover:text-red-700"/>
+                        <FaTrashAlt className="ml-4 absolute top-2 right-2 text-xl cursor-pointer hover:text-red-500"/>
                     </div>
                 </div>
                 <div className="w-full md:w-1/3 bg-gray-100 p-4 rounded-lg shadow-md">
