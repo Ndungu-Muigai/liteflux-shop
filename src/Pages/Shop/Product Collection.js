@@ -47,6 +47,8 @@ const ProductCollection = () =>
         { name: "Shop", path: "/shop" }
     ]
 
+    // const displayCollection=
+
     return (
         <>
             <div className="grid grid-cols-1 gap-3 md:gap-0 md:flex md:justify-around md:items-center bg-gray-100 py-7 rounded-lg shadow-md">
@@ -76,11 +78,15 @@ const ProductCollection = () =>
                 }
                 <span className="font-bold"> &gt;&gt; &nbsp;
                     {
-                        collection !== "cctv-cameras"
-                        ?
-                            collection= collection.charAt(0).toUpperCase() + collection.slice(1)
-                        :
-                            collection= "CCTV Cameras"
+                        collection === "cctv-cameras"
+                        ? 
+                            "CCTV Cameras"
+                        : 
+                            collection === "communication-devices"
+                            ? 
+                                "Communication Devices"
+                            :
+                                collection.toUpperCase()
                     }
                 </span>
             </div>
