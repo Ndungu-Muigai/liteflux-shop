@@ -69,12 +69,20 @@ const ProductCollection = () =>
                     previousPages.map((page, index) => 
                     (
                         <span key={index}>
-                            <Link to={page.path} className="font-bold hover:underline">{page.name}</Link>
+                            <Link to={page.path.toUpperCase()} className="font-bold hover:underline">{page.name}</Link>
                             {index < previousPages.length - 1 && " >> "}
                         </span>
                     ))
                 }
-                <span className="font-bold"> &gt;&gt; {collection.charAt(0).toUpperCase() + collection.slice(1)}</span>
+                <span className="font-bold"> &gt;&gt; &nbsp;
+                    {
+                        collection !== "cctv-cameras"
+                        ?
+                            collection= collection.charAt(0).toUpperCase() + collection.slice(1)
+                        :
+                            collection= "CCTV Cameras"
+                    }
+                </span>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
