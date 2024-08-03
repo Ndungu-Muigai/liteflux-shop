@@ -21,11 +21,16 @@ const ProductCollection = () =>
         .then(response => response.json())
         .then(data => 
         {
-            console.log(data.filter(d => d.category === collection))
             setProducts(data.filter(d => d.category === collection))
             setLoading(false)
         })
     }, [])
+
+    //useEffect to scroll to the top when the current page changes
+    useEffect(() => 
+    {
+        window.scrollTo(0, 0)
+    }, [currentPage])
 
     // Calculate the current products to display
     const indexOfLastProduct = currentPage * productsPerPage
