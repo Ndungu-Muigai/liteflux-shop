@@ -8,3 +8,8 @@
     background-size: cover;
     background-repeat: no-repeat;
 }
+button:disabled 
+{
+    opacity: 0.5;
+    cursor: not-allowed;
+}
