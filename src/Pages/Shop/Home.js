@@ -1,7 +1,9 @@
 import Footer from "../../Components/Footer";
 import Slider from 'react-slick'
 
+import CircuitBreaker from "../../Assets/Shop Category Images/Circuit breaker.jpeg"
 import CCTV from "../../Assets/Shop Category Images/CCTV.jpeg"
+import IPPhone from "../../Assets/Shop Category Images/IP Phone.jpeg"
 import Lighting from "../../Assets/Shop Category Images/Lighting.jpeg"
 import Sockets from "../../Assets/Shop Category Images/Sockets.jpeg"
 import Solar from "../../Assets/Shop Category Images/Solar.jpg"
@@ -65,25 +67,35 @@ const Shop = () =>
             
             <div className="mt-3 px-2 lg:px-12">
                 <h1 className="uppercase font-bold text-center text-2xl my-10 underline">Product categories</h1>
-                <Link to={"/categories/sockets"}>
-                    <div className="category" style={{ backgroundImage: `url(${Sockets})` }}>
-                        <span className="category-span">Sockets</span>
-                    </div>
-                </Link>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <Link to={"/categories/cctv-cameras"}>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
+                    <Link to={"/collections/sockets"}>
+                        <div className="category" style={{ backgroundImage: `url(${Sockets})` }}>
+                            <span className="category-span">Sockets</span>
+                        </div>
+                    </Link>
+                    <Link to={"/collections/electrical"}>
+                        <div className="category" style={{ backgroundImage: `url(${CircuitBreaker})` }}>
+                            <span className="category-span">Electrical Components</span>
+                        </div>
+                    </Link>
+                    <Link to={"/collections/cctv-cameras"}>
                         <div className="category" style={{ backgroundImage: `url(${CCTV})` }}>
                             <span className="category-span">CCTV Cameras</span>
                         </div>
                     </Link>
-                    <Link to={"/categories/solar-panels"}>
-                        <div className="category " style={{ backgroundImage: `url(${Solar})`}}>
-                            <span className="category-span">Solar Panels</span>
+                    <Link to={"/collections/communication-devices"}>
+                        <div className="category" style={{ backgroundImage: `url(${IPPhone})` }}>
+                            <span className="category-span">Communication devices</span>
                         </div>
                     </Link>
-                    <Link to={"/categories/street-lights"}>
+                    <Link to={"/collections/solar-products"}>
+                        <div className="category " style={{ backgroundImage: `url(${Solar})`}}>
+                            <span className="category-span">Solar Products</span>
+                        </div>
+                    </Link>
+                    <Link to={"/collections/lighting"}>
                         <div className="category" style={{ backgroundImage: `url(${Lighting})` }}>
-                            <span className="category-span">Street Lights</span>
+                            <span className="category-span">Lights</span>
                         </div>
                     </Link>
                 </div>
@@ -93,9 +105,9 @@ const Shop = () =>
                 <Swiper modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]} spaceBetween={15} slidesPerView={1} pagination={{ clickable: true }} autoplay={{ delay: 2500,disableOnInteraction: false }} breakpoints={{ 640: { slidesPerView: 2, spaceBetween: 20,}, 768: { slidesPerView: 3,  spaceBetween: 15,}, 1024: {slidesPerView: 3, spaceBetween: 15,}}}>
                     <SwiperSlide className="pb-10">
                         <Link to={`/products/test`} className="card border border-gray-300">
-                            <firgure className="p-1">
+                            <figure className="p-1">
                                 <img src="https://lightingequipmentsales.com/wp-content/uploads/2017/11/LED-Bulb-Types-740x416.jpg" alt="Product Name" />
-                            </firgure>
+                            </figure>
                             <div className="card-body">
                                 <h2 className="card-title">Product title</h2>
                                 <p className="card-text">This is a longer card with supporting text below as a natural</p>
@@ -105,9 +117,9 @@ const Shop = () =>
                     </SwiperSlide>
                     <SwiperSlide>
                         <Link to={`/products/test`} className="card border border-gray-300">
-                            <firgure className="p-1">
+                            <figure className="p-1">
                                 <img src="https://lightingequipmentsales.com/wp-content/uploads/2017/11/LED-Bulb-Types-740x416.jpg" alt="Product Name" />
-                            </firgure>
+                            </figure>
                             <div className="card-body">
                                 <h2 className="card-title">Product title</h2>
                                 <p className="card-text">This is a longer card with supporting text below as a natural</p>
@@ -117,9 +129,9 @@ const Shop = () =>
                     </SwiperSlide>
                     <SwiperSlide>
                         <Link to={`/products/test`} className="card border border-gray-300">
-                            <firgure className="p-1">
+                            <figure className="p-1">
                                 <img src="https://lightingequipmentsales.com/wp-content/uploads/2017/11/LED-Bulb-Types-740x416.jpg" alt="Product Name" />
-                            </firgure>
+                            </figure>
                             <div className="card-body">
                                 <h2 className="card-title">Product title</h2>
                                 <p className="card-text">This is a longer card with supporting text below as a natural</p>
@@ -129,9 +141,9 @@ const Shop = () =>
                     </SwiperSlide>
                     <SwiperSlide>
                         <Link to={`/products/test`} className="card border border-gray-300">
-                            <firgure className="p-1">
+                            <figure className="p-1">
                                 <img src="https://lightingequipmentsales.com/wp-content/uploads/2017/11/LED-Bulb-Types-740x416.jpg" alt="Product Name" />
-                            </firgure>
+                            </figure>
                             <div className="card-body">
                                 <h2 className="card-title">Product title</h2>
                                 <p className="card-text">This is a longer card with supporting text below as a natural</p>

@@ -18,6 +18,7 @@ import Navbar from './Components/Navbar';
 import Home from "./Pages/Home/Home"
 import Shop from "./Pages/Shop/Home"
 import Contact from "./Pages/Contact"
+import ProductCollection from './Pages/Shop/Product Collection'
 
 function App() 
 {
@@ -30,6 +31,7 @@ function App()
           <Route exact path='/' element={<Home/>}></Route>
           <Route exact path='/shop' element={<Shop/>}></Route>
           <Route exact path='/contact' element={<Contact/>}></Route>
+          <Route exact path='/collections/:collection' element={<ProductCollection/>}></Route>
           <Route exact path='*' element={<div>The page you're looking for doesn't exist</div>}></Route>
         </Routes>
       </div>
