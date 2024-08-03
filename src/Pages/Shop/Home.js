@@ -1,4 +1,4 @@
-import Footer from "../../Components/Footer";
+import Footer from "../../Components/Footer"
 import Slider from 'react-slick'
 
 import CircuitBreaker from "../../Assets/Shop Category Images/Circuit breaker.jpeg"
@@ -8,12 +8,15 @@ import Lighting from "../../Assets/Shop Category Images/Lighting.jpeg"
 import Sockets from "../../Assets/Shop Category Images/Sockets.jpeg"
 import Solar from "../../Assets/Shop Category Images/Solar.jpg"
 
-import { CiDeliveryTruck } from "react-icons/ci";
-import { BsCashCoin } from "react-icons/bs";
-import { AiOutlineFileProtect } from "react-icons/ai";
-import { Link } from "react-router-dom";
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from 'swiper/modules';
+import SlidingImage1 from "../../Assets/Sliding images/1.jpeg"
+import SlidingImage2 from "../../Assets/Sliding images/2.jpeg"
+
+import { CiDeliveryTruck } from "react-icons/ci"
+import { BsCashCoin } from "react-icons/bs"
+import { AiOutlineFileProtect } from "react-icons/ai"
+import { Link } from "react-router-dom"
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from 'swiper/modules'
 
 const Shop = () => 
 {
@@ -26,24 +29,28 @@ const Shop = () =>
         slidesToScroll: 1,
         autoplay: true,
         autoplaySpeed: 2500,
-    };
+    }
     
     const images = [
-        'https://cdn.pixabay.com/photo/2016/11/22/20/36/electrical-1852618_1280.jpg', 
-        'https://cdn.pixabay.com/photo/2019/06/17/19/27/camera-4283934_1280.jpg',
+        SlidingImage1, 
+        SlidingImage2,,
         'https://cdn.pixabay.com/photo/2016/12/26/17/28/solar-panel-1932731_1280.jpg', 
         'https://cdn.pixabay.com/photo/2014/12/11/11/52/street-lights-564951_1280.jpg', 
     ]
 
     return (
         <>
-            <div className="w-full border border-b-0 border-gray-300 p-2 mb-5 overflow-hidden">
+            <div className="w-full p-1 overflow-hidden mb-5">
                 <Slider {...settings}>
                     {
                         images.map((src, index) => 
                         (
-                            <div key={index} className="flex justify-center items-center">
-                                <img src={src} alt={`Slide ${index + 1}`} className="w-full h-auto max-h-72 object-cover"/>
+                            <div key={index} className="flex justify-center items-center w-full">
+                            {/* Option 1: Maintain aspect ratio with empty space */}
+                            <img src={src} alt={`Slide ${index}`} className="w-full h-96 object-contain"/>
+
+                            {/* Option 2: Fill container with potential cropping (alternative) */}
+                            {/* <img src={src} alt={`Slide ${index}`} className="w-full h-auto object-cover" /> */}
                             </div>
                         ))
                     }
@@ -156,7 +163,7 @@ const Shop = () =>
             </div>
             <Footer/>
         </>
-    );
+    )
 }
 
-export default Shop;
+export default Shop
