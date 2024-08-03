@@ -86,7 +86,11 @@ const ProductCollection = () =>
                             ? 
                                 "Communication Devices"
                             :
-                                collection.toUpperCase()
+                               collection === "solar-products"
+                                ?
+                                    "Solar Products"
+                                :
+                                    collection.toUpperCase()
                     }
                 </span>
             </div>
