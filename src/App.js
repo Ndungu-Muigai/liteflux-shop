@@ -21,6 +21,7 @@ import Home from "./Pages/Home/Home"
 import Shop from "./Pages/Shop/Home"
 import Contact from "./Pages/Contact"
 import ProductCollection from './Pages/Shop/Product Collection'
+import ProductCard from './Pages/Shop/Product Card'
 import Cart from './Pages/Shop/Cart'
 import Checkout from './Pages/Shop/Checkout'
 
@@ -37,6 +38,7 @@ function App()
           <Route exact path='/shop' element={<Shop/>}></Route>
           <Route exact path='/contact' element={<Contact/>}></Route>
           <Route exact path='/collections/:collection' element={<ProductCollection/>}></Route>
+          <Route exact path='/products/:name' element={<ProductCard/>}></Route>
           <Route exact path='/cart' element={<Cart/>}></Route>
           <Route exact path='/checkout' element={<Checkout/>}></Route>
           <Route exact path='*' element={<div>The page you're looking for doesn't exist</div>}></Route>

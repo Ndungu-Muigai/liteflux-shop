@@ -17,9 +17,12 @@ import { AiOutlineFileProtect } from "react-icons/ai"
 import { Link } from "react-router-dom"
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from 'swiper/modules'
+import { useEffect, useState } from "react"
 
 const Shop = () => 
 {
+    const [randomProducts, setRandomProducts]=useState([])
+
     const settings = 
     {
         dots: true,
@@ -38,6 +41,18 @@ const Shop = () =>
         'https://cdn.pixabay.com/photo/2014/12/11/11/52/street-lights-564951_1280.jpg', 
     ]
 
+    useEffect(()=>
+    {
+        fetch("https://products.litefluxent.com/products")
+        .then(response => response.json())
+        .then(data => 
+        {
+            const shuffledProducts=data.sort(()=> 0.5 - Math.random())
+            setRandomProducts(shuffledProducts.slice(0,5))
+        }
+        )
+    },[])
+
     return (
         <>
             <div className="w-full p-1 overflow-hidden mb-5">
@@ -46,11 +61,7 @@ const Shop = () =>
                         images.map((src, index) => 
                         (
                             <div key={index} className="flex justify-center items-center w-full">
-                            {/* Option 1: Maintain aspect ratio with empty space */}
-                            <img src={src} alt={`Slide ${index + 1}`} className="w-full h-96 object-contain"/>
-
-                            {/* Option 2: Fill container with potential cropping (alternative) */}
-                            {/* <img src={src} alt={`Slide ${index}`} className="w-full h-auto object-cover" /> */}
+                                <img src={src} alt={`Slide ${index + 1}`} className="w-full h-96 object-contain"/>
                             </div>
                         ))
                     }
@@ -107,60 +118,28 @@ const Shop = () =>
                     </Link>
                 </div>
             </div>
+
             <div className="mt-3 px-2 lg:px-12">
                 <h1 className="uppercase text-center font-bold text-2xl underline my-10">Product display</h1>
                 <Swiper modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]} spaceBetween={15} slidesPerView={1} pagination={{ clickable: true }} autoplay={{ delay: 2500,disableOnInteraction: false }} breakpoints={{ 640: { slidesPerView: 2, spaceBetween: 20,}, 768: { slidesPerView: 3,  spaceBetween: 15,}, 1024: {slidesPerView: 3, spaceBetween: 15,}}}>
-                    <SwiperSlide className="pb-10">
-                        <Link to={`/products/test`} className="card border border-gray-300">
-                            <figure className="p-1">
-                                <img src="https://lightingequipmentsales.com/wp-content/uploads/2017/11/LED-Bulb-Types-740x416.jpg" alt="Product Name" />
-                            </figure>
-                            <div className="card-body">
-                                <h2 className="card-title">Product title</h2>
-                                <p className="card-text">This is a longer card with supporting text below as a natural</p>
-                                <p className="font-bold uppercase text-lg">KES {(1500).toLocaleString()}</p>
-                            </div>
-                        </Link>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <Link to={`/products/test`} className="card border border-gray-300">
-                            <figure className="p-1">
-                                <img src="https://lightingequipmentsales.com/wp-content/uploads/2017/11/LED-Bulb-Types-740x416.jpg" alt="Product Name" />
-                            </figure>
-                            <div className="card-body">
-                                <h2 className="card-title">Product title</h2>
-                                <p className="card-text">This is a longer card with supporting text below as a natural</p>
-                                <p className="font-bold uppercase text-lg">KES {(1500).toLocaleString()}</p>
-                            </div>
-                        </Link>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <Link to={`/products/test`} className="card border border-gray-300">
-                            <figure className="p-1">
-                                <img src="https://lightingequipmentsales.com/wp-content/uploads/2017/11/LED-Bulb-Types-740x416.jpg" alt="Product Name" />
-                            </figure>
-                            <div className="card-body">
-                                <h2 className="card-title">Product title</h2>
-                                <p className="card-text">This is a longer card with supporting text below as a natural</p>
-                                <p className="font-bold uppercase text-lg">KES {(1500).toLocaleString()}</p>
-                            </div>
-                        </Link>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <Link to={`/products/test`} className="card border border-gray-300">
-                            <figure className="p-1">
-                                <img src="https://lightingequipmentsales.com/wp-content/uploads/2017/11/LED-Bulb-Types-740x416.jpg" alt="Product Name" />
-                            </figure>
-                            <div className="card-body">
-                                <h2 className="card-title">Product title</h2>
-                                <p className="card-text">This is a longer card with supporting text below as a natural</p>
-                                <p className="font-bold uppercase text-lg">KES {(1500).toLocaleString()}</p>
-                            </div>
-                        </Link>
-                    </SwiperSlide>
+                    {
+                    randomProducts.map((product, index) => (
+                        <SwiperSlide key={index} className="pb-10 h-24">
+                            <Link to={`/products/${product.name}`} className="card border border-gray-300">
+                                <figure className="p-1 h-56">
+                                    <img src={product.image} alt={product.name} />
+                                </figure>
+                                <div className="card-body">
+                                    <h2 className="card-title h-3">{product.name}</h2>
+                                    <p className="card-text pt-6">{product.description}</p>
+                                    <p className="font-bold uppercase text-lg">KES {(product.price).toLocaleString()}</p>
+                                </div>
+                            </Link>
+                        </SwiperSlide>
+                    ))}
                 </Swiper>
-                
             </div>
+
             <Footer/>
         </>
     )
