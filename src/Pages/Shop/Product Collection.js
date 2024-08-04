@@ -120,10 +120,18 @@ const ProductCollection = () =>
                             currentProducts.map(product => 
                             (
                                 <div key={product.id} className="bg-white p-4 rounded-lg shadow-md">
-                                    <img src={product.image} alt={product.name} className="w-full h-48 object-cover rounded-t-lg" />
-                                    <h2 className="text-xl font-bold mt-2">{product.name}</h2>
-                                    <p className="text-gray-600 mt-2">{product.description}</p>
-                                    <p className="text-lg font-semibold mt-2">KES {product.price.toLocaleString()}</p>
+                                    <Link to={`/products/${product.name}`}>
+                                        <img src={product.image} alt={product.name} className="w-full h-48 object-cover rounded-t-lg" />
+                                        <h2 className="text-xl font-bold mt-2">{product.name}</h2>
+                                        <p className="text-gray-600 mt-2">{product.description}</p>
+                                        <p className="text-lg font-semibold mt-2">KES {product.price.toLocaleString()}</p>
+                                    </Link>
+                                    <div className="relative group">
+                                        <div className="flex justify-between mt-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                            <Link to={`/products/${product.name}`} className="btn text-white">Learn more</Link>
+                                            <button className="btn bg-background text-white hover:bg-blue-600 transition duration-300">Add to cart</button>
+                                        </div>
+                                    </div>
                                 </div>
                             ))
                         )
