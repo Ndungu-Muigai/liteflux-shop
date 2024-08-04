@@ -34,7 +34,8 @@ const ProductCard = () =>
         console.log('Product added to cart:', productData)
     }
 
-    if (!productData.product) {
+    if (!productData.product) 
+    {
         return (
             <div className="flex justify-center items-center min-h-screen">
                 <div className="flex flex-col md:flex-row items-center border border-gray-300 p-4 animate-pulse max-w-4xl w-full h-96">
