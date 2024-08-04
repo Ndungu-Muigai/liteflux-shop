@@ -15,9 +15,7 @@ export const CartProvider = ({ children }) =>
 {
     const [cart, setCart] = useState(loadCartFromLocalStorage)
 
-    useEffect(() => {
-        saveCartToLocalStorage(cart)
-    }, [cart])
+    useEffect(() => saveCartToLocalStorage(cart), [cart])
 
     const addToCart = (product, quantity) => 
     {
@@ -55,19 +53,24 @@ export const CartProvider = ({ children }) =>
         )
     }
 
-    const removeFromCart = productId => {
-        setCart(prevCart => {
+    const removeFromCart = productId => 
+    {
+        setCart(prevCart => 
+        {
             const updatedCart = prevCart.filter(item => item.product.id !== productId)
-            if (updatedCart.length < prevCart.length) {
+            if (updatedCart.length < prevCart.length) 
+            {
                 toast.warn(`Item removed from cart`)
             }
             return updatedCart
         })
     }
 
-    const clearCart = () => {
+    const clearCart = () => 
+    {
         setCart([])
-        toast.error('Cart cleared')
+        localStorage.removeItem('cart')
+        toast.warn('Cart cleared')
     }
 
     return (
