@@ -5,13 +5,11 @@ import { MdOutlineShoppingBag } from "react-icons/md";
 import { CiHeart } from "react-icons/ci";
 import { useCart } from '../Pages/Shop/Context/Cart Context'; // Ensure correct path
 
-const Navbar = () => 
-{
+const Navbar = () => {
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const { cart = [] } = useCart(); 
 
-    const getTotalPrice = () => 
-    {
+    const getTotalPrice = () => {
         return cart.reduce((total, item) => 
         {
             const price = item.product.price || 0; // Default to 0 if price is undefined
@@ -23,19 +21,27 @@ const Navbar = () =>
     const toggleDropdown = () => setIsDropdownOpen(!isDropdownOpen);
     const closeDropdown = () => setIsDropdownOpen(false);
 
+    const handleLinkClick = () => 
+    {
+        if (window.innerWidth < 768) 
+        {
+            closeDropdown(); // Close dropdown on smaller screens
+        }
+    };
+
     return (
         <div className="navbar fixed top-0 left-0 right-0 w-full bg-background text-white z-50">
             <div className="navbar-start">
                 <div className="dropdown">
-                    <div tabIndex={0} role="button" className="btn btn-ghost md:hidden">
+                    <div tabIndex={0}  role="button" className="btn btn-ghost md:hidden" onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" />
                         </svg>
                     </div>
-                    <ul tabIndex={0} className="menu menu-sm dropdown-content bg-background rounded-box z-[1] mt-3 w-52 p-2 shadow">
-                        <li><Link to="/">Home</Link></li>
-                        <li><Link to="/shop">Shop</Link></li>
-                        <li><Link to="/contact">Contact</Link></li>
+                    <ul tabIndex={0} className={`menu menu-sm dropdown-content bg-background rounded-box z-[1] mt-3 w-52 p-2 shadow ${isDropdownOpen ? 'block' : 'hidden'}`}>
+                        <li><Link to="/" onClick={handleLinkClick}>Home</Link></li>
+                        <li><Link to="/shop" onClick={handleLinkClick}>Shop</Link></li>
+                        <li><Link to="/contact" onClick={handleLinkClick}>Contact</Link></li>
                     </ul>
                 </div>
                 <img src={Logo} alt='Liteflux Enterprises' className='w-32 h-20 p-2'/>
