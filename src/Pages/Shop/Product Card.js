@@ -35,7 +35,6 @@ const ProductCard = () =>
         if (productData.product) 
         {
             addToCart(productData.product, productData.quantity) 
-            console.log('Product added to cart:', productData)
         }
     }
 

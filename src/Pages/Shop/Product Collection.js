@@ -1,55 +1,44 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import { useParams, Link } from "react-router-dom"
 import { useEffect, useState } from "react"
 import { CiDeliveryTruck } from "react-icons/ci"
 import { BsCashCoin } from "react-icons/bs"
 import { AiOutlineFileProtect } from "react-icons/ai"
 import { useCart } from "./Context/Cart Context" 
-
 import Footer from "../../Components/Footer"
 
-const ProductCollection = () => 
-{
+const ProductCollection = () => {
     let { collection } = useParams()
 
     const [products, setProducts] = useState([])
     const [currentPage, setCurrentPage] = useState(1)
     const [loading, setLoading] = useState(true)
-    const { addToCart } = useCart()
+    const { addToCart } = useCart()  // Ensure addToCart is available here
     const productsPerPage = 6
 
-    useEffect(() => 
-    {
+    useEffect(() => {
         fetch("https://products.litefluxent.com/products")
-        .then(response => response.json())
-        .then(data => 
-        {
-            setProducts(data.filter(d => d.category === collection))
-            setLoading(false)
-        })
-    }, [])
+            .then(response => response.json())
+            .then(data => {
+                setProducts(data.filter(d => d.category === collection))
+                setLoading(false)
+            })
+    }, [collection])  // Added collection to dependency array
 
-    //useEffect to scroll to the top when the current page changes
-    useEffect(() => 
-    {
+    useEffect(() => {
         window.scrollTo(0, 0)
     }, [currentPage])
 
-    // Calculate the current products to display
     const indexOfLastProduct = currentPage * productsPerPage
     const indexOfFirstProduct = indexOfLastProduct - productsPerPage
     const currentProducts = products.slice(indexOfFirstProduct, indexOfLastProduct)
 
-    // Calculate total pages
     const totalPages = Math.ceil(products.length / productsPerPage)
 
-    const handlePageChange = (event, number) => 
-    {
+    const handlePageChange = (event, number) => {
         event.preventDefault()
         setCurrentPage(number)
     }
 
-    // Simulate previous pages for the navigation history
     const previousPages = [
         { name: "Home", path: "/" },
         { name: "Shop", path: "/shop" }
@@ -84,18 +73,12 @@ const ProductCollection = () =>
                 <span className="font-bold"> &gt;&gt; &nbsp;
                     {
                         collection === "cctv-cameras"
-                            ?
-                                "CCTV Cameras"
-                            :
-                            collection === "communication-devices"
-                                ?
-                                    "Communication Devices"
-                                :
-                                collection === "solar-products"
-                                    ?
-                                        "Solar Products"
-                                    :
-                                        collection.charAt(0).toUpperCase() + collection.slice(1)
+                            ? "CCTV Cameras"
+                            : collection === "communication-devices"
+                                ? "Communication Devices"
+                                : collection === "solar-products"
+                                    ? "Solar Products"
+                                    : collection.charAt(0).toUpperCase() + collection.slice(1)
                     }
                 </span>
             </div>
@@ -103,41 +86,35 @@ const ProductCollection = () =>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
                 {
                     loading
-                        ?
-                        (
-                            Array.from({ length: productsPerPage }).map((_, index) => (
-                                <div key={index} className="bg-white p-4 rounded-lg shadow-md animate-pulse">
-                                    <div className="w-full h-48 bg-gray-300 rounded-t-lg"></div>
-                                    <div className="mt-2 h-6 bg-gray-300 rounded"></div>
-                                    <div className="mt-2 h-4 bg-gray-300 rounded"></div>
-                                    <div className="mt-2 h-4 bg-gray-300 rounded"></div>
-                                </div>
-                            ))
-                        )
-                        :
-                        (
-                            currentProducts.map(product => (
-                                <div key={product.id} className="bg-white p-4 rounded-lg shadow-md">
-                                    <Link to={`/products/${product.name}`}>
-                                        <img src={product.image} alt={product.name} className="w-full h-48 object-cover rounded-t-lg" />
-                                        <h2 className="text-xl font-bold mt-2">{product.name}</h2>
-                                        <p className="text-gray-600 mt-2">{product.description}</p>
-                                        <p className="text-lg font-semibold mt-2">KES {product.price.toLocaleString()}</p>
-                                    </Link>
-                                    <div className="relative group">
-                                        <div className="flex justify-between mt-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                            <Link to={`/products/${product.name}`} className="btn text-white">Learn more</Link>
-                                            <button
-                                                onClick={() => addToCart(product, 1)}
-                                                className="btn bg-background text-white hover:bg-blue-600 transition duration-300"
-                                            >
-                                                Add to cart
-                                            </button>
-                                        </div>
+                        ? Array.from({ length: productsPerPage }).map((_, index) => (
+                            <div key={index} className="bg-white p-4 rounded-lg shadow-md animate-pulse">
+                                <div className="w-full h-48 bg-gray-300 rounded-t-lg"></div>
+                                <div className="mt-2 h-6 bg-gray-300 rounded"></div>
+                                <div className="mt-2 h-4 bg-gray-300 rounded"></div>
+                                <div className="mt-2 h-4 bg-gray-300 rounded"></div>
+                            </div>
+                        ))
+                        : currentProducts.map(product => (
+                            <div key={product.id} className="bg-white p-4 rounded-lg shadow-md">
+                                <Link to={`/products/${product.name}`}>
+                                    <img src={product.image} alt={product.name} className="w-full h-48 object-cover rounded-t-lg" />
+                                    <h2 className="text-xl font-bold mt-2">{product.name}</h2>
+                                    <p className="text-gray-600 mt-2">{product.description}</p>
+                                    <p className="text-lg font-semibold mt-2">KES {product.price.toLocaleString()}</p>
+                                </Link>
+                                <div className="relative group">
+                                    <div className="flex justify-between mt-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                        <Link to={`/products/${product.name}`} className="btn text-white">Learn more</Link>
+                                        <button
+                                            onClick={() => addToCart(product, 1)}
+                                            className="btn bg-background text-white hover:bg-blue-600 transition duration-300"
+                                        >
+                                            Add to cart
+                                        </button>
                                     </div>
                                 </div>
-                            ))
-                        )
+                            </div>
+                        ))
                 }
             </div>
 

@@ -5,7 +5,7 @@ import { Link } from "react-router-dom"
 import { useCart } from "./Context/Cart Context"
 
 const Cart = () => {
-    const { cart, addToCart, removeFromCart } = useCart()
+    const { cart, removeFromCart, updateCartQuantity } = useCart()
     const [showModal, setShowModal] = useState(false)
     const [itemToRemove, setItemToRemove] = useState(null)
 
@@ -14,7 +14,7 @@ const Cart = () => {
         const newQuantity = item.quantity + change
         if (newQuantity > 0) 
         {
-            addToCart(item.product, newQuantity)
+            updateCartQuantity(item.product, newQuantity)
         }
     }
 
@@ -111,7 +111,11 @@ const Cart = () => {
                         <span className="font-semibold">KES {totalPrice}</span>
                     </div>
                     <Link to="/checkout" className={`btn w-full bg-background text-white py-2 rounded-lg shadow hover:bg-blue-700 transition duration-300 mb-4 ${cart.length === 0 ? 'opacity-50 cursor-not-allowed' : ''}`} disabled={cart.length === 0}>Checkout</Link>
-                    <Link to="/shop" className="text-blue-500 mx-auto hover:underline">Continue shopping</Link>
+                    <Link to="/shop" className="text-blue-500 mx-auto hover:underline">
+                    {
+                        cart.length > 0 ? "Continue shopping" : "Start shopping"
+                    }
+                    </Link>
                 </div>
             </div>
             <Footer />
