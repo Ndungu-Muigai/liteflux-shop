@@ -3,7 +3,7 @@ import Logo from '../Assets/Images/logo.png';
 import { Link } from 'react-router-dom';
 import { MdOutlineShoppingBag } from "react-icons/md";
 import { CiHeart } from "react-icons/ci";
-import { useCart } from '../Pages/Shop/Cart Context'; // Ensure correct path
+import { useCart } from '../Pages/Shop/Context/Cart Context'; // Ensure correct path
 
 const Navbar = () => 
 {

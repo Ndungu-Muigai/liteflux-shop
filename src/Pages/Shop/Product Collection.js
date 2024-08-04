@@ -4,7 +4,7 @@ import { useEffect, useState } from "react"
 import { CiDeliveryTruck } from "react-icons/ci"
 import { BsCashCoin } from "react-icons/bs"
 import { AiOutlineFileProtect } from "react-icons/ai"
-import { useCart } from "../Shop/Cart Context" 
+import { useCart } from "./Context/Cart Context" 
 
 import Footer from "../../Components/Footer"
 

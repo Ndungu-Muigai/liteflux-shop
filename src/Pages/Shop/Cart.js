@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import Footer from "../../Components/Footer"
 import { FaTrashAlt } from "react-icons/fa"
 import { Link } from "react-router-dom"
-import { useCart } from "./Cart Context"
+import { useCart } from "./Context/Cart Context"
 
 const Cart = () => {
     const { cart, addToCart, removeFromCart } = useCart()

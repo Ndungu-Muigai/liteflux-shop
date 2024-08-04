@@ -3,7 +3,7 @@ import Footer from "../../Components/Footer"
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import { KenyaAdministrativeDivisions } from 'kenya-administrative-divisions'
-import { useCart } from "../Shop/Cart Context"
+import { useCart } from "./Context/Cart Context"
 
 const Checkout = () => 
 {

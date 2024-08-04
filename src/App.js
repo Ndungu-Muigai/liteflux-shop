@@ -24,7 +24,7 @@ import ProductCollection from './Pages/Shop/Product Collection'
 import ProductCard from './Pages/Shop/Product Card'
 import Cart from './Pages/Shop/Cart'
 import Checkout from './Pages/Shop/Checkout'
-import { CartProvider } from './Pages/Shop/Cart Context'
+import { CartProvider } from './Pages/Shop/Context/Cart Context'
 
 function App() 
 {

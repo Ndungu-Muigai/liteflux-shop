@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import Footer from '../../Components/Footer'
-import { useCart } from './Cart Context'
+import { useCart } from './Context/Cart Context'
 
 const ProductCard = () => 
 {
