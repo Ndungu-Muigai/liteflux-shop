@@ -24,26 +24,29 @@ import ProductCollection from './Pages/Shop/Product Collection'
 import ProductCard from './Pages/Shop/Product Card'
 import Cart from './Pages/Shop/Cart'
 import Checkout from './Pages/Shop/Checkout'
+import { CartProvider } from './Pages/Shop/Cart Context'
 
 function App() 
 {
   return (
     <div className='bg-slate-100 min-h-screen text-black'>
-      <ToastContainer position='top-right' autoClose={3000} hideProgressBar={false} newestOnTop closeOnClick rtl={false} pauseOnFocusLoss={false} draggable pauseOnHover={false} theme='light' transition={Slide}/>
-      <Navbar/>
-      <div className='mt-24'>
-      <ScrollToTop/>
-        <Routes>
-          <Route exact path='/' element={<Home/>}></Route>
-          <Route exact path='/shop' element={<Shop/>}></Route>
-          <Route exact path='/contact' element={<Contact/>}></Route>
-          <Route exact path='/collections/:collection' element={<ProductCollection/>}></Route>
-          <Route exact path='/products/:name' element={<ProductCard/>}></Route>
-          <Route exact path='/cart' element={<Cart/>}></Route>
-          <Route exact path='/checkout' element={<Checkout/>}></Route>
-          <Route exact path='*' element={<div>The page you're looking for doesn't exist</div>}></Route>
-        </Routes>
-      </div>
+      <CartProvider>
+        <ToastContainer position='top-right' autoClose={3000} hideProgressBar={false} newestOnTop closeOnClick rtl={false} pauseOnFocusLoss={false} draggable pauseOnHover={false} theme='light' transition={Slide}/>
+        <Navbar/>
+        <div className='mt-24'>
+        <ScrollToTop/>
+          <Routes>
+            <Route exact path='/' element={<Home/>}></Route>
+            <Route exact path='/shop' element={<Shop/>}></Route>
+            <Route exact path='/contact' element={<Contact/>}></Route>
+            <Route exact path='/collections/:collection' element={<ProductCollection/>}></Route>
+            <Route exact path='/products/:name' element={<ProductCard/>}></Route>
+            <Route exact path='/cart' element={<Cart/>}></Route>
+            <Route exact path='/checkout' element={<Checkout/>}></Route>
+            <Route exact path='*' element={<div>The page you're looking for doesn't exist</div>}></Route>
+          </Routes>
+        </div>
+      </CartProvider>
     </div>
   );
 }

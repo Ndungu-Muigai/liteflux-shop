@@ -1,10 +1,12 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useParams, Link } from "react-router-dom"
-import Footer from "../../Components/Footer"
 import { useEffect, useState } from "react"
 import { CiDeliveryTruck } from "react-icons/ci"
 import { BsCashCoin } from "react-icons/bs"
 import { AiOutlineFileProtect } from "react-icons/ai"
+import { useCart } from "../Shop/Cart Context" 
+
+import Footer from "../../Components/Footer"
 
 const ProductCollection = () => 
 {
@@ -13,6 +15,7 @@ const ProductCollection = () =>
     const [products, setProducts] = useState([])
     const [currentPage, setCurrentPage] = useState(1)
     const [loading, setLoading] = useState(true)
+    const { addToCart } = useCart()
     const productsPerPage = 6
 
     useEffect(() => 
@@ -52,8 +55,6 @@ const ProductCollection = () =>
         { name: "Shop", path: "/shop" }
     ]
 
-    // const displayCollection=
-
     return (
         <>
             <div className="grid grid-cols-1 gap-3 md:gap-0 md:flex md:justify-around md:items-center bg-gray-100 py-7 rounded-lg shadow-md">
@@ -73,10 +74,9 @@ const ProductCollection = () =>
 
             <div className="border-b-2 mt-5 p-4">
                 {
-                    previousPages.map((page, index) => 
-                    (
+                    previousPages.map((page, index) => (
                         <span key={index}>
-                            <Link to={page.path.toUpperCase()} className="font-bold hover:underline">{page.name}</Link>
+                            <Link to={page.path} className="font-bold hover:underline">{page.name}</Link>
                             {index < previousPages.length - 1 && " >> "}
                         </span>
                     ))
@@ -84,29 +84,28 @@ const ProductCollection = () =>
                 <span className="font-bold"> &gt;&gt; &nbsp;
                     {
                         collection === "cctv-cameras"
-                        ? 
-                            "CCTV Cameras"
-                        : 
-                            collection === "communication-devices"
-                            ? 
-                                "Communication Devices"
+                            ?
+                                "CCTV Cameras"
                             :
-                               collection === "solar-products"
+                            collection === "communication-devices"
                                 ?
-                                    "Solar Products"
+                                    "Communication Devices"
                                 :
-                                    collection.charAt(0).toUpperCase() + collection.slice(1)
+                                collection === "solar-products"
+                                    ?
+                                        "Solar Products"
+                                    :
+                                        collection.charAt(0).toUpperCase() + collection.slice(1)
                     }
                 </span>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
                 {
-                    loading 
-                    ? 
+                    loading
+                        ?
                         (
-                            Array.from({ length: productsPerPage }).map((_, index) => 
-                            (
+                            Array.from({ length: productsPerPage }).map((_, index) => (
                                 <div key={index} className="bg-white p-4 rounded-lg shadow-md animate-pulse">
                                     <div className="w-full h-48 bg-gray-300 rounded-t-lg"></div>
                                     <div className="mt-2 h-6 bg-gray-300 rounded"></div>
@@ -114,11 +113,10 @@ const ProductCollection = () =>
                                     <div className="mt-2 h-4 bg-gray-300 rounded"></div>
                                 </div>
                             ))
-                        ) 
-                    : 
+                        )
+                        :
                         (
-                            currentProducts.map(product => 
-                            (
+                            currentProducts.map(product => (
                                 <div key={product.id} className="bg-white p-4 rounded-lg shadow-md">
                                     <Link to={`/products/${product.name}`}>
                                         <img src={product.image} alt={product.name} className="w-full h-48 object-cover rounded-t-lg" />
@@ -129,13 +127,18 @@ const ProductCollection = () =>
                                     <div className="relative group">
                                         <div className="flex justify-between mt-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                                             <Link to={`/products/${product.name}`} className="btn text-white">Learn more</Link>
-                                            <button className="btn bg-background text-white hover:bg-blue-600 transition duration-300">Add to cart</button>
+                                            <button
+                                                onClick={() => addToCart(product, 1)}
+                                                className="btn bg-background text-white hover:bg-blue-600 transition duration-300"
+                                            >
+                                                Add to cart
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
                             ))
                         )
-                    }
+                }
             </div>
 
             <div className="flex justify-center items-center mt-4">

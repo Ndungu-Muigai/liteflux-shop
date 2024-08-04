@@ -1,9 +1,9 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import Footer from "../../Components/Footer"
-import Logo from "../../Assets/Images/logo.png"
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import { KenyaAdministrativeDivisions } from 'kenya-administrative-divisions'
+import { useCart } from "../Shop/Cart Context"
 
 const Checkout = () => 
 {
@@ -28,6 +28,8 @@ const Checkout = () =>
     const [constituencies, setConstituencies] = useState([])
     const [wards, setWards] = useState([])
 
+    const { cart } = useCart() // Destructure cart from useCart
+
     // Function to handle input change
     const handleInputChange = e => setCheckoutDetails({ ...checkoutDetails, [e.target.name]: e.target.value })
 
@@ -35,18 +37,15 @@ const Checkout = () =>
     const data = kenyaAdmin.getAll()
 
     // useEffect hook to set the fetched data
-    useEffect(() => 
-    {
-        setCounties(data)
-    }, [data])
+    useEffect(() => setCounties(data), [data])
 
     // useEffect hook to update the constituencies based on the county
     useEffect(() => 
     {
         const matchingConstituencies = counties.find(d => d.county_name === checkoutDetails.county)
         setConstituencies(matchingConstituencies ? matchingConstituencies.constituencies : [])
-        setWards([])// Clear wards when county changes
-        setCheckoutDetails(prev => ({ ...prev, sub_county: "", ward: "" }))// Reset sub_county and ward
+        setWards([]) // Clear wards when county changes
+        setCheckoutDetails(prev => ({ ...prev, sub_county: "", ward: "" })) // Reset sub_county and ward
     }, [checkoutDetails.county, counties])
 
     // useEffect hook to update the wards based on the sub county
@@ -54,8 +53,11 @@ const Checkout = () =>
     {
         const matchingWards = constituencies.find(s => s.constituency_name === checkoutDetails.sub_county)
         setWards(matchingWards ? matchingWards.wards : [])
-        setCheckoutDetails(prev => ({ ...prev, ward: "" }))// Reset ward when sub_county changes
+        setCheckoutDetails(prev => ({ ...prev, ward: "" })) // Reset ward when sub_county changes
     }, [checkoutDetails.sub_county, constituencies])
+
+    // Calculate the subtotal
+    const subtotal = cart.reduce((acc, item) => acc + item.product.price * item.quantity, 0)
 
     return (
         <>
@@ -92,8 +94,7 @@ const Checkout = () =>
                                 <select className="input-field" name="county" value={checkoutDetails.county} onChange={handleInputChange} required>
                                     <option value="">Select County</option>
                                     {
-                                        counties.map(county => 
-                                        <option key={county.county_code} value={county.county_name}>{county.county_name}</option>)
+                                        counties.map(county => <option key={county.county_code} value={county.county_name}>{county.county_name}</option>)
                                     }
                                 </select>
                             </div>
@@ -144,17 +145,19 @@ const Checkout = () =>
                         <Link to="/cart" className="text-blue-600 hover:text-blue-800 font-semibold border border-blue-600 hover:border-blue-800 rounded px-3 py-1 transition-colors duration-200">Edit</Link>
                     </div>
                     <hr className="mb-4" />
-                    <div className="relative flex items-start p-2 mb-4">
-                        <img src={Logo} alt="Product name" className="h-24 w-24 object-cover rounded-lg" />
-                        <div className="flex flex-col ml-4 flex-grow">
-                            <h3 className="font-bold text-lg mb-2">Product name</h3>
-                            <p>Qty: 1</p>
-                            <p className="text-base mt-2">KES 1,500</p>
+                    {cart.map(item => (
+                        <div key={item.product.id} className="relative flex items-start p-2 mb-4">
+                            <img src={item.product.image} alt={item.product.name} className="h-24 w-24 object-cover rounded-lg" />
+                            <div className="flex flex-col ml-4 flex-grow">
+                                <h3 className="font-bold text-lg mb-2">{item.product.name}</h3>
+                                <p>Qty: {item.quantity}</p>
+                                <p className="text-base mt-2">KES {item.product.price.toLocaleString()}</p>
+                            </div>
                         </div>
-                    </div>
+                    ))}
                     <div className="flex justify-between">
                         <p className="text-base mb-2">Subtotal</p>
-                        <span className="font-semibold">KES 1,500</span>
+                        <span className="font-semibold">KES {subtotal.toLocaleString()}</span>
                     </div>
                     <div className="flex justify-between">
                         <p className="text-base mb-2">Shipping</p>
@@ -163,7 +166,7 @@ const Checkout = () =>
                     <hr className="m-3" />
                     <div className="flex justify-between">
                         <p className="text-xl mb-4 font-bold">Total</p>
-                        <span className="text-xl font-bold">KES 1,500</span>
+                        <span className="text-xl font-bold">KES {subtotal.toLocaleString()}</span>
                     </div>
                 </div>
             </div>

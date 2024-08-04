@@ -3,14 +3,25 @@ import Logo from '../Assets/Images/logo.png';
 import { Link } from 'react-router-dom';
 import { MdOutlineShoppingBag } from "react-icons/md";
 import { CiHeart } from "react-icons/ci";
+import { useCart } from '../Pages/Shop/Cart Context'; // Ensure correct path
 
 const Navbar = () => 
 {
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+    const { cart = [] } = useCart(); 
 
-    const toggleDropdown = () =>setIsDropdownOpen(!isDropdownOpen)
+    const getTotalPrice = () => 
+    {
+        return cart.reduce((total, item) => 
+        {
+            const price = item.product.price || 0; // Default to 0 if price is undefined
+            const quantity = item.quantity || 0; // Default to 0 if quantity is undefined
+            return total + (price * quantity);
+        }, 0);
+    };
 
-    const closeDropdown = () => setIsDropdownOpen(false)
+    const toggleDropdown = () => setIsDropdownOpen(!isDropdownOpen);
+    const closeDropdown = () => setIsDropdownOpen(false);
 
     return (
         <div className="navbar fixed top-0 left-0 right-0 w-full bg-background text-white z-50">
@@ -22,30 +33,18 @@ const Navbar = () =>
                         </svg>
                     </div>
                     <ul tabIndex={0} className="menu menu-sm dropdown-content bg-background rounded-box z-[1] mt-3 w-52 p-2 shadow">
-                        <li>
-                            <Link to="/">Home</Link>
-                        </li>
-                        <li>
-                            <Link to="/shop">Shop</Link>
-                        </li>
-                        <li>
-                            <Link to="/contact">Contact</Link>
-                        </li>
+                        <li><Link to="/">Home</Link></li>
+                        <li><Link to="/shop">Shop</Link></li>
+                        <li><Link to="/contact">Contact</Link></li>
                     </ul>
                 </div>
                 <img src={Logo} alt='Liteflux Enterprises' className='w-32 h-20 p-2'/>
             </div>
             <div className="navbar-center hidden md:flex">
                 <ul className="menu menu-horizontal px-1 text-lg">
-                    <li>
-                        <Link to="/">Home</Link>
-                    </li>
-                    <li>
-                        <Link to="/shop">Shop</Link>
-                    </li>
-                    <li>
-                        <Link to="/contact">Contact</Link>
-                    </li>
+                    <li><Link to="/">Home</Link></li>
+                    <li><Link to="/shop">Shop</Link></li>
+                    <li><Link to="/contact">Contact</Link></li>
                 </ul>
             </div>
             <div className="navbar-end flex">
@@ -61,41 +60,54 @@ const Navbar = () =>
                         </Link>
                     </li>
                     <li onClick={toggleDropdown}>
-                      <div className="relative ml-4">
-                        <div className="dropdown dropdown-end">
-                            <div tabIndex={0} role='button' className="flex items-center">
-                                <div className="indicator">
-                                    <MdOutlineShoppingBag className="text-2xl"/>
-                                    <span className="badge badge-sm indicator-item text-inherit bg-transparent border-none">0</span>
-                                </div>
-                            </div>
-                            <div className={`card card-compact dropdown-content bg-background z-[1] mt-9 w-64 shadow-lg ${isDropdownOpen ? 'block' : 'hidden'}`} onClick={closeDropdown}>
-                                <div className="card-body max-h-72 overflow-y-auto">
-                                  <div className='flex justify-between'>
-                                    <img src={Logo} alt='Product' className='w-20'/>
-                                    <div>
-                                        <p className='pt-1'>Product description</p>
-                                        <p className='pt-1'>Qty: 1</p>
-                                        <p className='pt-1'>Price: Kshs 1,500</p>
+                        <div className="relative ml-4">
+                            <div className="dropdown dropdown-end">
+                                <div tabIndex={0} role='button' className="flex items-center">
+                                    <div className="indicator">
+                                        <MdOutlineShoppingBag className="text-2xl"/>
+                                        <span className="badge badge-sm indicator-item text-inherit bg-transparent border-none">{cart.length}</span>
                                     </div>
-                                  </div>
-                                  <div className="flex justify-between text-lg mt-2">
-                                    <p className='text-white'>Total</p>
-                                    <span className="text-white">Kshs. 0.00</span>
-                                  </div>
-                                  <div className="card-actions mt-2">
-                                    <Link to="/cart" className="btn btn-primary btn-block">View Cart</Link>
-                                    <Link to="/checkout" className="btn btn-primary btn-block">Checkout</Link>
-                                  </div>
+                                </div>
+                                <div className={`card card-compact dropdown-content bg-background z-[1] mt-9 w-64 shadow-lg ${isDropdownOpen ? 'block' : 'hidden'}`} onClick={closeDropdown}>
+                                    <div className="card-body max-h-72 overflow-y-auto">
+                                        {
+                                            cart.length > 0 
+                                            ? 
+                                                (
+                                                    cart.map(item => 
+                                                    (
+                                                        <div key={item.product.id} className='flex justify-between mb-2 gap-2'>
+                                                            <img src={item.product.image} alt={item.product.name} className='w-20'/>
+                                                            <div>
+                                                                <p className='pt-1'>{item.product.name}</p>
+                                                                <p className='pt-1'>Qty: {item.quantity || 0}</p>
+                                                                <p className='pt-1'>Price: Kshs {item.product.price ? item.product.price.toLocaleString() : '0.00'}</p>
+                                                            </div>
+                                                        </div>
+                                                    ))
+                                                ) 
+                                            : 
+                                                (
+                                                    <p className='text-center text-white'>No items in cart</p>
+                                                )
+                                            }
+                                        <div className="flex justify-between text-lg mt-2">
+                                            <p className='text-white'>Total</p>
+                                            <span className="text-white">Kshs {getTotalPrice().toLocaleString()}</span>
+                                        </div>
+                                        <div className="card-actions mt-2">
+                                            <Link to="/cart" className="btn btn-primary btn-block">View Cart</Link>
+                                            <Link to="/checkout" className={`btn btn-primary btn-block ${cart.length === 0 ? 'opacity-50 cursor-not-allowed' : ''}`} onClick={(e) => cart.length === 0 && e.preventDefault()}>Checkout</Link>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                      </div>
                     </li>
                 </ul>
             </div>
         </div>
     );
-}
+};
 
 export default Navbar;

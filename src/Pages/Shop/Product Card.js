@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import Footer from '../../Components/Footer'
+import { useCart } from './Cart Context'
 
 const ProductCard = () => 
 {
@@ -9,6 +10,7 @@ const ProductCard = () =>
     const [productData, setProductData] = useState({ product: null, quantity: 1 })
     const { name } = useParams()
     const navigate = useNavigate()
+    const { addToCart } = useCart()
 
     useEffect(() => 
     {
@@ -19,7 +21,7 @@ const ProductCard = () =>
 
     useEffect(() => 
     {
-        if (products.length > 0)
+        if (products.length > 0) 
         {
             const individualProduct = products.find(p => p.name.toLowerCase() === name.toLowerCase())
             setProductData(prevState => ({ ...prevState, product: individualProduct || null }))
@@ -30,8 +32,11 @@ const ProductCard = () =>
 
     const handleAddToCart = () => 
     {
-        // Logic to add the product to the cart
-        console.log('Product added to cart:', productData)
+        if (productData.product) 
+        {
+            addToCart(productData.product, productData.quantity) 
+            console.log('Product added to cart:', productData)
+        }
     }
 
     if (!productData.product) 
@@ -69,7 +74,7 @@ const ProductCard = () =>
                         <div className="flex justify-center md:justify-start items-center mt-4 mb-6">
                             <button onClick={() => handleQuantityChange(-1)} className="bg-gray-300 text-gray-700 p-2 rounded-l focus:outline-none hover:bg-gray-400" disabled={productData.quantity === 1}>-</button>
                             <input type="number" value={productData.quantity} readOnly className="w-52 md:w-40 h-10 bg-white text-center border-t border-b border-gray-300 focus:outline-none"/>
-                            <button onClick={() => handleQuantityChange(1)} className="bg-gray-300 text-gray-700 p-2 rounded-r focus:outline-none hover:bg-gray-400">+</button>
+                            <button onClick={() => handleQuantityChange(1)} className="bg-gray-300 text-gray-700 p-2 rounded-r focus:outline-none hover:bg-gray-400">+    </button>
                         </div>
                         <button onClick={handleAddToCart} className="block w-full bg-background text-white py-2 rounded mb-2 hover:bg-blue-600 transition duration-300">Add to Cart</button>
                         <button onClick={() => navigate(-1)} className="block w-full bg-gray-500 text-white py-2 rounded hover:bg-gray-600 transition duration-300">Back</button>
