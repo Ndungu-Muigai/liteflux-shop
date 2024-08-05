@@ -7,10 +7,7 @@ Welcome to Liteflux Shop, an e-commerce platform for Liteflux Enterprises, speci
 - [Demo](#demo)
 - [Features](#features)
 - [Technologies Used](#technologies-used)
-- [Getting Started](#getting-started)
-- [Installation](#installation)
 - [Usage](#usage)
-- [Contributing](#contributing)
 - [License](#license)
 - [Contact](#contact)
 
@@ -36,3 +33,15 @@ Check out the live demo: [Liteflux Shop](https://liteflux-shop.vercel.app/)
 - **Redis**: For session management
 - **Flask**: Backend framework for handling server-side logic
 - **React Router**: For client-side routing
+
+## Usage
+-Navigate through the different product categories.
+-Add products to the cart and proceed to checkout.
+-Manage your user profile and view order history.
+-Use the contact page for any inquiries or support.
+
+## License
+Distributed under the MIT License. See LICENSE for more information.
+
+## Contact
+Liteflux Enterprises - liteflux23@gmail.com
