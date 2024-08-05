@@ -60,7 +60,7 @@ export const CartProvider = ({ children }) =>
             const updatedCart = prevCart.filter(item => item.product.id !== productId)
             if (updatedCart.length < prevCart.length) 
             {
-                toast.warn(`Item removed from cart`)
+                toast.success(`Item removed from cart`)
             }
             return updatedCart
         })
