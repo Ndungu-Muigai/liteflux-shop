@@ -73,7 +73,7 @@ const ProductCard = () =>
                         <p className="text-lg font-semibold text-gray-900 mb-4">KES {(productData.product.price).toLocaleString()}</p>
                         <div className="flex justify-center md:justify-start items-center mt-4 mb-6">
                             <button onClick={() => handleQuantityChange(-1)} className="bg-gray-300 text-gray-700 p-2 rounded-l focus:outline-none hover:bg-gray-400" disabled={productData.quantity === 1}>-</button>
-                            <input type="number" value={productData.quantity} readOnly className="w-52 md:w-40 h-10 bg-white text-center border-t border-b border-gray-300 focus:outline-none"/>
+                            <input type="number" value={productData.quantity} className="w-52 md:w-40 h-10 bg-white text-center border-t border-b border-gray-300 focus:outline-none"/>
                             <button onClick={() => handleQuantityChange(1)} className="bg-gray-300 text-gray-700 p-2 rounded-r focus:outline-none hover:bg-gray-400">+    </button>
                         </div>
                         <button onClick={handleAddToCart} className="block w-full bg-background text-white py-2 rounded mb-2 hover:bg-blue-600 transition duration-300">Add to Cart</button>
