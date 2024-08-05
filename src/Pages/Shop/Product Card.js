@@ -35,7 +35,7 @@ const ProductCard = () =>
         if (productData.product) 
         {
             addToCart(productData.product, productData.quantity) 
-            setProductData(prevState => ({ ...prevState, quantity: 1 }))
+            setTimeout(() => setProductData(prevState => ({ ...prevState, quantity: 1 })), 3000);
         }
     }
 
