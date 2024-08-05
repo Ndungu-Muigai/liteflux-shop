@@ -28,7 +28,7 @@ export const CartProvider = ({ children }) =>
                 newCart[existingProductIndex].quantity += quantity
                 toast.success(`Product quantity updated`)
                 return newCart
-            } 
+            }
             else 
             {
                 toast.success(`Product added to cart`)
@@ -37,40 +37,45 @@ export const CartProvider = ({ children }) =>
         })
     }
 
-    const updateCartQuantity= (product, quantity) =>
-    {
-        setCart(prevCart =>
-        {
-            const existingProductIndex=prevCart.findIndex(item => item.product.id === product.id)
-            if(existingProductIndex !== -1)
-            {
-                const newCart=[...prevCart]
-                newCart[existingProductIndex].quantity = quantity
-                toast.success(`Product quantity updated`)
-                return newCart
-            }
-        }
-        )
-    }
-
-    const removeFromCart = productId => 
+    const updateCartQuantity = (product, quantity) => 
     {
         setCart(prevCart => 
         {
-            const updatedCart = prevCart.filter(item => item.product.id !== productId)
-            if (updatedCart.length < prevCart.length) 
+            const existingProductIndex = prevCart.findIndex(item => item.product.id === product.id)
+            if (existingProductIndex !== -1) 
             {
-                toast.success(`Item removed from cart`)
+                if (quantity === 0) 
+                {
+                    return removeFromCartInternal(prevCart, product.id)
+                } 
+                else 
+                {
+                    const newCart = [...prevCart]
+                    newCart[existingProductIndex].quantity = quantity
+                    toast.success(`Product quantity updated`)
+                    return newCart
+                }
             }
-            return updatedCart
+            return prevCart
         })
     }
+
+    const removeFromCartInternal = (prevCart, productId) => 
+    {
+        const updatedCart = prevCart.filter(item => item.product.id !== productId)
+        if (updatedCart.length < prevCart.length) {
+            toast.success(`Item removed from cart`)
+        }
+        return updatedCart
+    }
+
+    const removeFromCart = productId => setCart(prevCart => removeFromCartInternal(prevCart, productId))
 
     const clearCart = () => 
     {
         setCart([])
         localStorage.removeItem('cart')
-        toast.warn('Cart cleared')
+        toast.success('Cart cleared')
     }
 
     return (

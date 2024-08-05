@@ -130,7 +130,7 @@ const Cart = () =>
                                     <div className="flex flex-col ml-4 flex-grow">
                                         <h3 className="font-bold text-lg mb-2">{item.product.name}</h3>
                                         <div className="flex items-center mt-auto mb-10">
-                                            <button onClick={() => handleQuantityChange(item, -1)} className="bg-gray-300 text-gray-700 p-2 rounded-l focus:outline-none hover:bg-gray-400" disabled={item.quantity === 1} >-</button>
+                                            <button onClick={() => handleQuantityChange(item, -1)} className="bg-gray-300 text-gray-700 p-2 rounded-l focus:outline-none hover:bg-gray-400">-</button>
                                             <input type="number" value={item.quantity} readOnly className="w-16 md:w-40 h-10 bg-white text-center border-t border-b border-gray-300 focus:outline-none"/>
                                             <button onClick={() => handleQuantityChange(item, 1)} className="bg-gray-300 text-gray-700 p-2 rounded-r focus:outline-none hover:bg-gray-400">+</button>
                                         </div>
