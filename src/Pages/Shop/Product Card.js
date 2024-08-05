@@ -35,8 +35,8 @@ const ProductCard = () =>
         if (productData.product) 
         {
             addToCart(productData.product, productData.quantity) 
+            setProductData(prevState => ({ ...prevState, quantity: 1 }))
         }
-        setProductData({ product: null, quantity: 1 })
     }
 
     if (!productData.product) 
