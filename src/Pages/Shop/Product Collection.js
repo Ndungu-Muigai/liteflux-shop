@@ -104,13 +104,8 @@ const ProductCollection = () => {
                                 </Link>
                                 <div className="relative group">
                                     <div className="flex justify-between mt-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                        <Link to={`/products/${product.name}`} className="btn text-white">Learn more</Link>
-                                        <button
-                                            onClick={() => addToCart(product, 1)}
-                                            className="btn bg-background text-white hover:bg-blue-600 transition duration-300"
-                                        >
-                                            Add to cart
-                                        </button>
+                                        <Link to={`/products/${product.name}`} className="btn bg-black text-white">Learn more</Link>
+                                        <button onClick={() => addToCart(product, 1)} className="btn bg-background text-white hover:bg-blue-600 transition duration-300">Add to cart</button>
                                     </div>
                                 </div>
                             </div>
