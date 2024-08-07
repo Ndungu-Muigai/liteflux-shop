@@ -25,6 +25,7 @@ import ProductCard from './Pages/Shop/Product Card'
 import Cart from './Pages/Shop/Cart'
 import Checkout from './Pages/Shop/Checkout'
 import { CartProvider } from './Pages/Shop/Context/Cart Context'
+import SavedItems from './Pages/Shop/Saved Items'
 
 function App() 
 {
@@ -41,6 +42,7 @@ function App()
             <Route exact path='/contact' element={<Contact/>}></Route>
             <Route exact path='/collections/:collection' element={<ProductCollection/>}></Route>
             <Route exact path='/products/:name' element={<ProductCard/>}></Route>
+            <Route exact path='/saved' element={<SavedItems/>}></Route>
             <Route exact path='/cart' element={<Cart/>}></Route>
             <Route exact path='/checkout' element={<Checkout/>}></Route>
             <Route exact path='*' element={<div>The page you're looking for doesn't exist</div>}></Route>
