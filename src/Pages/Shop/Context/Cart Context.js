@@ -46,7 +46,7 @@ export const CartProvider = ({ children }) =>
             {
                 const newCart=[...prevCart]
                 newCart[existingProductIndex].quantity = quantity
-                toast.success(`Product added to cart`)
+                toast.success("Product quantity updated" )
                 return newCart
             }
         }
