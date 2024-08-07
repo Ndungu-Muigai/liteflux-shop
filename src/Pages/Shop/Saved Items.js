@@ -25,7 +25,7 @@ const SavedItems = () => {
                     <img src={item.image} alt={item.name} className="w-full h-48 object-cover mb-4 rounded" />
                     <h3 className="text-xl font-semibold">{item.name}</h3>
                     <p>{item.description}</p>
-                    <Link to={`/products/${item.name}`} className="mt-2 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">View</Link>
+                    <Link to={`/products/${item.name}`} className="btn mt-3 px-4 py-2 bg-background text-white rounded hover:bg-blue-600">View</Link>
                 </div>
                 ))}
             </div>
