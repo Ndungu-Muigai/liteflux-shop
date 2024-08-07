@@ -11,8 +11,8 @@ const SavedItems = () => {
   // Mock data, replace this with your actual data fetching logic
   useEffect(() => {
     const mockData = [
-      { id: 1, name: 'Product 1', description: 'Description of product 1', image: 'https://via.placeholder.com/150', price="1500" },
-      { id: 2, name: 'Product 2', description: 'Description of product 2', image: 'https://via.placeholder.com/150', price="1500" },
+      { id: 1, name: 'Product 1', image: 'https://via.placeholder.com/150', price="1500" },
+      { id: 2, name: 'Product 2', image: 'https://via.placeholder.com/150', price="1500" },
       // Add more products as needed
     ];
     setSavedItems(mockData);
@@ -37,7 +37,6 @@ const SavedItems = () => {
             <div key={item.id} className="border p-4 rounded shadow">
               <img src={item.image} alt={item.name} className="w-full h-48 object-cover mb-4 rounded" />
               <h3 className="text-xl font-semibold">{item.name}</h3>
-              <p>{item.description}</p>
               <div className="flex flex-col mt-2 space-y-2">
                 <button
                   onClick={() => handleAddToCart(item)}
