@@ -11,8 +11,8 @@ const SavedItems = () => {
   // Mock data, replace this with your actual data fetching logic
   useEffect(() => {
     const mockData = [
-      { id: 1, name: 'Product 1', description: 'Description of product 1', image: 'https://via.placeholder.com/150' },
-      { id: 2, name: 'Product 2', description: 'Description of product 2', image: 'https://via.placeholder.com/150' },
+      { id: 1, name: 'Product 1', description: 'Description of product 1', image: 'https://via.placeholder.com/150', price="1500" },
+      { id: 2, name: 'Product 2', description: 'Description of product 2', image: 'https://via.placeholder.com/150', price="1500" },
       // Add more products as needed
     ];
     setSavedItems(mockData);
