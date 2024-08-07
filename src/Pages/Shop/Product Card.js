@@ -4,6 +4,7 @@ import { useParams, useNavigate } from 'react-router-dom'
 import Footer from '../../Components/Footer'
 import { useCart } from './Context/Cart Context'
 import { useSavedItems } from './Context/Saved Items Context'
+import { FaRegHeart } from "react-icons/fa6"
 
 const ProductCard = () => 
 {
@@ -78,7 +79,10 @@ const ProductCard = () =>
             <img src={productData.product.image} alt={productData.product.name} className="w-full h-64 object-cover"/>
           </figure>
           <div className="p-6 w-full md:w-1/2 text-center md:text-left">
-            <h2 className="text-2xl font-bold mb-2">{productData.product.name}</h2>
+            <div className="flex justify-between gap-3">
+              <h2 className="text-2xl font-bold mb-2">{productData.product.name}</h2>
+              <FaRegHeart className='text-2xl hover:text-orange-600' onClick={handleSaveItem}/>
+            </div>
             <p className="text-gray-700 mb-4">{productData.product.description}</p>
             <p className="text-lg font-semibold text-gray-900 mb-4">KES {(productData.product.price).toLocaleString()}</p>
             <div className="flex justify-center md:justify-start items-center mt-4 mb-6">
@@ -86,10 +90,7 @@ const ProductCard = () =>
               <input type="number" value={productData.quantity} readOnly className="w-52 md:w-40 h-10 bg-white text-center border-t border-b border-gray-300 focus:outline-none"/>
               <button onClick={() => handleQuantityChange(1)} className="bg-gray-300 text-gray-700 p-2 rounded-r focus:outline-none hover:bg-gray-400">+</button>
             </div>
-            <div className="flex justify-between gap-4">
-              <button onClick={handleAddToCart} className="block w-full bg-background text-white py-2 rounded mb-2 hover:bg-blue-600 transition duration-300">Add to Cart</button>
-              <button onClick={handleSaveItem} className="block w-full bg-blue-500 text-white py-2 rounded mb-2 hover:bg-blue-600 transition duration-300">Bookmark Item</button>
-            </div>
+            <button onClick={handleAddToCart} className="block w-full bg-background text-white py-2 rounded mb-2 hover:bg-blue-600 transition duration-300">Add to Cart</button>
             <button onClick={() => navigate(-1)} className="block w-full bg-gray-500 text-white py-2 rounded hover:bg-gray-600 transition duration-300">Back</button>
           </div>
         </div>
