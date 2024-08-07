@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Footer from '../../Components/Footer';
-import { useCart } from '../../contexts/CartContext';
+import { useCart } from './Context/Cart Context';
 
 const SavedItems = () => {
   const [savedItems, setSavedItems] = useState([]);
