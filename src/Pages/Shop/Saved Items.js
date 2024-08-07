@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
 import Footer from '../../Components/Footer';
+import {Link} from "react-router-dom"
 
 const SavedItems = () => {
   const [savedItems, setSavedItems] = useState([]);
-  const history = useHistory();
 
   // Mock data, replace this with your actual data fetching logic
   useEffect(() => {
@@ -16,10 +15,6 @@ const SavedItems = () => {
     setSavedItems(mockData);
   }, []);
 
-  const handleViewProduct = (id) => {
-    history.push(`/products/${id}`);
-  };
-
   return (
     <>
         <div className="p-4">
@@ -30,12 +25,7 @@ const SavedItems = () => {
                     <img src={item.image} alt={item.name} className="w-full h-48 object-cover mb-4 rounded" />
                     <h3 className="text-xl font-semibold">{item.name}</h3>
                     <p>{item.description}</p>
-                    <button
-                    onClick={() => handleViewProduct(item.id)}
-                    className="mt-2 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
-                    >
-                    View
-                    </button>
+                    <Link to={`/products/${item.name}`} className="mt-2 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">View</Link>
                 </div>
                 ))}
             </div>
