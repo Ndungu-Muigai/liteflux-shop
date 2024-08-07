@@ -1,51 +1,56 @@
 /* eslint-disable jsx-a11y/heading-has-content */
-import React, { useEffect, useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
-import Footer from '../../Components/Footer';
-import { useCart } from './Context/CartContext';
-import { useSavedItems } from './Context/SavedItemsContext';
+import React, { useEffect, useState } from 'react'
+import { useParams, useNavigate } from 'react-router-dom'
+import Footer from '../../Components/Footer'
+import { useCart } from './Context/Cart Context'
+import { useSavedItems } from './Context/Saved Items Context'
 
-const ProductCard = () => {
-  const [products, setProducts] = useState([]);
-  const [productData, setProductData] = useState({ product: null, quantity: 1 });
-  const { name } = useParams();
-  const navigate = useNavigate();
-  const { addToCart } = useCart();
-  const { addItemToSaved } = useSavedItems();
+const ProductCard = () => 
+{
+  const [products, setProducts] = useState([])
+  const [productData, setProductData] = useState({ product: null, quantity: 1 })
+  const { name } = useParams()
+  const navigate = useNavigate()
+  const { addToCart } = useCart()
+  const { addItemToSaved } = useSavedItems()
 
-  useEffect(() => {
+  useEffect(() => 
+  {
     fetch('https://products.litefluxent.com/products')
-      .then((response) => response.json())
-      .then((data) => setProducts(data));
-  }, []);
+    .then((response) => response.json())
+    .then((data) => setProducts(data))
+  }, [])
 
-  useEffect(() => {
-    if (products.length > 0) {
-      const individualProduct = products.find((p) => p.name.toLowerCase() === name.toLowerCase());
-      setProductData((prevState) => ({ ...prevState, product: individualProduct || null }));
+  useEffect(() => 
+  {
+    if (products.length > 0) 
+    {
+      const individualProduct = products.find((p) => p.name.toLowerCase() === name.toLowerCase())
+      setProductData((prevState) => ({ ...prevState, product: individualProduct || null }))
     }
-  }, [products, name]);
+  }, [products, name])
 
-  const handleQuantityChange = (change) =>
-    setProductData((prevState) => ({
-      ...prevState,
-      quantity: Math.max(1, prevState.quantity + change),
-    }));
+  const handleQuantityChange = change =>setProductData((prevState) => ({...prevState,quantity: Math.max(1, prevState.quantity + change)}))
 
-  const handleAddToCart = () => {
-    if (productData.product) {
-      addToCart(productData.product, productData.quantity);
-      setTimeout(() => setProductData((prevState) => ({ ...prevState, quantity: 1 })), 3000);
+  const handleAddToCart = () => 
+  {
+    if (productData.product) 
+    {
+      addToCart(productData.product, productData.quantity)
+      setTimeout(() => setProductData((prevState) => ({ ...prevState, quantity: 1 })), 3000)
     }
-  };
+  }
 
-  const handleSaveItem = () => {
-    if (productData.product) {
-      addItemToSaved(productData.product);
+  const handleSaveItem = () => 
+  {
+    if (productData.product) 
+    {
+      addItemToSaved(productData.product)
     }
-  };
+  }
 
-  if (!productData.product) {
+  if (!productData.product) 
+  {
     return (
       <div className="flex justify-center items-center min-h-screen">
         <div className="flex flex-col md:flex-row items-center border border-gray-300 p-4 animate-pulse max-w-4xl w-full h-96">
@@ -62,7 +67,7 @@ const ProductCard = () => {
           </div>
         </div>
       </div>
-    );
+    )
   }
 
   return (
@@ -83,7 +88,7 @@ const ProductCard = () => {
             </div>
             <div className="flex justify-between gap-4">
               <button onClick={handleAddToCart} className="block w-full bg-background text-white py-2 rounded mb-2 hover:bg-blue-600 transition duration-300">Add to Cart</button>
-              <button onClick={handleSaveItem} className="block w-full bg-blue-500 text-white py-2 rounded mb-2 hover:bg-blue-600 transition duration-300">Save Item</button>
+              <button onClick={handleSaveItem} className="block w-full bg-blue-500 text-white py-2 rounded mb-2 hover:bg-blue-600 transition duration-300">Bookmark Item</button>
             </div>
             <button onClick={() => navigate(-1)} className="block w-full bg-gray-500 text-white py-2 rounded hover:bg-gray-600 transition duration-300">Back</button>
           </div>
@@ -91,7 +96,7 @@ const ProductCard = () => {
       </div>
       <Footer />
     </>
-  );
-};
+  )
+}
 
-export default ProductCard;
+export default ProductCard

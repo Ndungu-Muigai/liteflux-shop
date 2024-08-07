@@ -1,33 +1,37 @@
-import React, { useState } from 'react';
-import Logo from '../Assets/Images/logo.png';
-import { Link } from 'react-router-dom';
-import { MdOutlineShoppingBag } from "react-icons/md";
-import { CiHeart } from "react-icons/ci";
-import { useCart } from '../Pages/Shop/Context/Cart Context'; // Ensure correct path
+import React, { useState } from 'react'
+import Logo from '../Assets/Images/logo.png'
+import { Link } from 'react-router-dom'
+import { MdOutlineShoppingBag } from "react-icons/md"
+import { CiHeart } from "react-icons/ci"
+import { useCart } from '../Pages/Shop/Context/Cart Context'
+import {useSavedItems} from "../Pages/Shop/Context/Saved Items Context"
 
-const Navbar = () => {
-    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-    const { cart = [] } = useCart(); 
+const Navbar = () => 
+{
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false)
+    const { cart = [] } = useCart() 
+    const {savedItems = []}=useSavedItems()
 
-    const getTotalPrice = () => {
+    const getTotalPrice = () => 
+    {
         return cart.reduce((total, item) => 
         {
-            const price = item.product.price || 0; // Default to 0 if price is undefined
-            const quantity = item.quantity || 0; // Default to 0 if quantity is undefined
-            return total + (price * quantity);
-        }, 0);
-    };
+            const price = item.product.price || 0
+            const quantity = item.quantity || 0
+            return total + (price * quantity)
+        }, 0)
+    }
 
-    const toggleDropdown = () => setIsDropdownOpen(!isDropdownOpen);
-    const closeDropdown = () => setIsDropdownOpen(false);
+    const toggleDropdown = () => setIsDropdownOpen(!isDropdownOpen)
+    const closeDropdown = () => setIsDropdownOpen(false)
 
     const handleLinkClick = () => 
     {
         if (window.innerWidth < 768) 
         {
-            closeDropdown(); // Close dropdown on smaller screens
+            closeDropdown()
         }
-    };
+    }
 
     return (
         <div className="navbar fixed top-0 left-0 right-0 w-full bg-background text-white z-50">
@@ -60,7 +64,7 @@ const Navbar = () => {
                             <div tabIndex={0} role='button' className="flex items-center">
                                 <div className="indicator">
                                     <CiHeart className="text-2xl"/>
-                                    <span className="badge badge-sm indicator-item text-inherit bg-transparent border-none">0</span>
+                                    <span className="badge badge-sm indicator-item text-inherit bg-transparent border-none">{savedItems.length}</span>
                                 </div>
                             </div>
                         </Link>
@@ -113,7 +117,7 @@ const Navbar = () => {
                 </ul>
             </div>
         </div>
-    );
-};
+    )
+}
 
-export default Navbar;
+export default Navbar
