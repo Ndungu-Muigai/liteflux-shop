@@ -1,31 +1,20 @@
-import React, { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import Footer from '../../Components/Footer';
-import { useCart } from './Context/Cart Context';
+import { useCart } from '../../contexts/CartContext';
+import { useSavedItems } from '../../contexts/SavedItemsContext';
 
-const SavedItems = () => {
-  const [savedItems, setSavedItems] = useState([]);
-  const { addToCart } = useCart();
+const SavedItems = () => 
+{
+  const { savedItems } = useSavedItems()
+  const { addToCart } = useCart()
 
-  const navigate=useNavigate()
-  // Mock data, replace this with your actual data fetching logic
-  useEffect(() => {
-    const mockData = [
-      { id: 1, name: 'Product 1', image: 'https://via.placeholder.com/150', price="1500" },
-      { id: 2, name: 'Product 2', image: 'https://via.placeholder.com/150', price="1500" },
-      // Add more products as needed
-    ];
-    setSavedItems(mockData);
-  }, []);
-
-  const handleAddToCart = (item) => {
-    addToCart(item, 1);
-  };
+  const handleAddToCart = item =>addToCart(item, 1)
 
   const handleBuyNow = (item) => {
     addToCart(item, 1);
     // Redirect to checkout page
-    navigate('/checkout')
+    window.location.href = '/checkout';
   };
 
   return (
@@ -37,6 +26,7 @@ const SavedItems = () => {
             <div key={item.id} className="border p-4 rounded shadow">
               <img src={item.image} alt={item.name} className="w-full h-48 object-cover mb-4 rounded" />
               <h3 className="text-xl font-semibold">{item.name}</h3>
+              <p>{item.description}</p>
               <div className="flex flex-col mt-2 space-y-2">
                 <button
                   onClick={() => handleAddToCart(item)}
