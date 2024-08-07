@@ -36,7 +36,11 @@ export const SavedItemsProvider = ({ children }) =>
     })
   };
 
-  const removeItemFromSaved = itemId => setSavedItems((prevItems) => prevItems.filter((item) => item.id !== itemId))
+  const removeItemFromSaved = itemId => 
+  {
+    setSavedItems((prevItems) => prevItems.filter((item) => item.id !== itemId))
+    toast.success("Product removed from bookmarks")
+  }
 
   return (
     <SavedItemsContext.Provider value={{ savedItems, addItemToSaved, removeItemFromSaved }}>
