@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Footer from '../../Components/Footer';
-import { useCart } from '../../contexts/CartContext';
-import { useSavedItems } from '../../contexts/SavedItemsContext';
+import { useCart } from './Context/Cart Context';
+import { useSavedItems } from './Context/SavedItemsContext';
 
 const SavedItems = () => 
 {
