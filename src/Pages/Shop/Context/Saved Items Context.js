@@ -28,7 +28,7 @@ export const SavedItemsProvider = ({ children }) =>
       const existingItem = prevItems.find((savedItem) => savedItem.id === item.id)
       if (existingItem) 
       {
-        toast.warn("Product already bookmarked" )
+        toast.warn("Product already added to wishlist" )
         return prevItems // Item already saved
       }
       toast.success("Product added to wishlist" )
