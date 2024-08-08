@@ -5,6 +5,7 @@ import { useCart } from './Context/Cart Context'
 import { useSavedItems } from './Context/Saved Items Context'
 
 const SavedItems = () => {
+
   const { savedItems, removeItemFromSaved } = useSavedItems()
   const { addToCart } = useCart()
   const [isLoading, setIsLoading] = useState(true)
@@ -12,7 +13,8 @@ const SavedItems = () => {
   const [itemToRemove, setItemToRemove] = useState(null)
   const navigate = useNavigate()
 
-  useEffect(() => {
+  useEffect(() => 
+  {
     // Simulate fetching data with a timeout
     setTimeout(() => setIsLoading(false), 2000)
   }, [])
